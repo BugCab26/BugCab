@@ -29,6 +29,7 @@ export function AstronautBanner() {
                 src="/images/contect banner.png"
                 alt="3D Fluid Banner Graphic"
                 fill
+                sizes="(max-width: 640px) 240px, (max-width: 768px) 380px, (max-width: 1024px) 480px, 560px"
                 priority
                 className="object-contain drop-shadow-2xl"
                 style={{ mixBlendMode: "multiply" }}

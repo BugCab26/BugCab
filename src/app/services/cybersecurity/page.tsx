@@ -84,6 +84,7 @@ export default function CybersecurityPage() {
                 src="/images/cyber_robot.png"
                 alt="Cybersecurity Robot Graphic"
                 fill
+                sizes="(max-width: 640px) 260px, (max-width: 768px) 360px, (max-width: 1024px) 440px, 490px"
                 priority
                 className="object-contain object-right-bottom filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
               />

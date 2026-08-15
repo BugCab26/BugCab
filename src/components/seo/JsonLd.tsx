@@ -45,7 +45,7 @@ export function JsonLd() {
         sameAs: [
           "https://twitter.com/bugcab",
           "https://linkedin.com/company/bugcab",
-          "https://github.com/dineshkumar0202",
+          "https://github.com/bugcab",
           "https://instagram.com/bugcab",
         ],
       },
@@ -241,7 +241,7 @@ export function AboutJsonLd() {
         jobTitle: "Founder & Full-Stack Developer",
         worksFor: { "@id": "https://bugcab.com/#organization" },
         url: "https://bugcab.com/about",
-        sameAs: ["https://github.com/dineshkumar0202", "https://linkedin.com/in/dineshkumar0202"],
+        sameAs: ["https://github.com/bugcab", "https://linkedin.com/in/dineshkumar0202"],
       },
     ],
   };

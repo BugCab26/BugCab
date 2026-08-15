@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Pricing — IT Services Cost for Startups & Freelancers | BugCab India",
   description:
     "Transparent pricing for web development, mobile app development, UI/UX design, digital marketing & IT consulting. Fixed-price projects from ₹5,000. Free quote in 24 hours.",
-  alternates: { canonical: "https://bugcab.com/pricing" },
+  alternates: { canonical: "/pricing" },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/pricing",

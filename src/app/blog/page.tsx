@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Blog — IT Tips, Startup Tech Guides & Dev Insights | BugCab",
   description:
     "The BugCab blog covers web development, mobile app development, UI/UX, digital marketing & IT strategy — all tailored for startup founders and freelancers across India.",
-  alternates: { canonical: "https://bugcab.com/blog" },
+  alternates: { canonical: "/blog" },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/blog",

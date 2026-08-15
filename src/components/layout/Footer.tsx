@@ -22,7 +22,7 @@ const services = [
 const socials = [
   { label: "LinkedIn", href: "https://linkedin.com/company/bugcab" },
   { label: "Twitter", href: "https://twitter.com/bugcab" },
-  { label: "GitHub", href: "https://github.com/dineshkumar0202" },
+  { label: "GitHub", href: "https://github.com/bugcab" },
   { label: "Instagram", href: "https://instagram.com/bugcab" },
 ];
 

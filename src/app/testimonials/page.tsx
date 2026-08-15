@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Client Reviews & Testimonials — BugCab IT Solutions India",
   description:
     "See what startup founders and freelancers say about working with BugCab. Real reviews on web development, mobile app development, UI/UX design & digital marketing across India.",
-  alternates: { canonical: "https://bugcab.com/testimonials" },
+  alternates: { canonical: "/testimonials" },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/testimonials",
@@ -342,7 +342,7 @@ export default function TestimonialsPage() {
           </div>
 
           <a
-            href="https://g.page/r/YOUR_GOOGLE_PLACE_ID/review"
+            href="https://maps.google.com/?q=BugCab+IT+Solutions"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold hover:border-primary transition-colors"

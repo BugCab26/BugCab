@@ -1,5 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Briefcase, MapPin } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Careers — Join the BugCab Team | IT Solutions India",
+  description:
+    "Explore career opportunities at BugCab. Join our team building web development, mobile apps, UI/UX, and digital solutions for startups and freelancers.",
+  alternates: { canonical: "/careers" },
+  openGraph: {
+    type: "website",
+    url: "https://bugcab.com/careers",
+    title: "Careers — Join the BugCab Team | IT Solutions India",
+    description:
+      "Explore career opportunities at BugCab. Join our team building web development, mobile apps, UI/UX, and digital solutions.",
+    images: [{ url: "https://bugcab.com/images/og-careers.jpg", width: 1200, height: 630 }],
+    siteName: "BugCab IT Solutions",
+  },
+};
+
 
 const positions = [
   {

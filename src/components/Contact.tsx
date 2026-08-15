@@ -215,7 +215,7 @@ export function Contact() {
                     },
                     {
                       Icon: Github,
-                      href: "https://github.com/dineshkumar0202",
+                      href: "https://github.com/bugcab",
                       label: "BugCab on GitHub",
                     },
                     {
