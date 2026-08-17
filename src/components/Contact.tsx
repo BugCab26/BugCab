@@ -2,14 +2,36 @@
 
 import { useState, useRef } from "react";
 import { Reveal } from "./Reveal";
-import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Github, Twitter, Linkedin, Instagram, Paperclip, Check } from "lucide-react";
 import { sendContactMessage } from "@/app/actions";
 import { toast } from "sonner";
+
+const serviceOptions = [
+  "Website",
+  "Web App",
+  "Mobile App",
+  "UI/UX Design",
+  "Branding",
+  "Ecommerce",
+  "SaaS",
+  "AI Product",
+  "I just have a problem",
+];
 
 export function Contact() {
   const [sent, setSent] = useState(false);
   const [isPending, setIsPending] = useState(false);
+  const [selectedServices, setSelectedServices] = useState<string[]>(["Website"]);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const toggleService = (service: string) => {
+    setSelectedServices((prev) =>
+      prev.includes(service)
+        ? prev.filter((s) => s !== service)
+        : [...prev, service]
+    );
+  };
+
   return (
     <section id="contact" className="relative overflow-hidden py-16 sm:py-32 bg-background">
       {/* Background Glow */}
@@ -38,7 +60,7 @@ export function Contact() {
             { icon: "⚡", text: "Response within 24 hours" },
             { icon: "🎯", text: "Free quote, no commitment" },
             { icon: "🌍", text: "Available worldwide" },
-            { icon: "⭐", text: "50+ projects delivered" },
+            { icon: "⭐", text: "2+ projects delivered" },
           ].map(({ icon, text }) => (
             <div key={text} className="flex items-center gap-2">
               <span aria-hidden="true">{icon}</span>
@@ -60,29 +82,36 @@ export function Contact() {
                       Email
                     </span>
                     <a
-                      href="mailto:hello@bugcab.com"
-                      className="hover:text-red-400 transition-colors"
+                      href="mailto:bugcab.com@gmail.com"
+                      className="hover:text-red-400 transition-colors font-medium text-foreground"
                     >
-                      hello@bugcab.com
+                      bugcab.com@gmail.com
                     </a>
+                  </li>
+                  <li>
+                    <span className="block text-xs uppercase tracking-widest text-red-500 font-semibold mb-1">
+                      Phone / Mobile
+                    </span>
+                    <div className="flex flex-col gap-1 text-foreground font-medium">
+                      <a href="tel:+916374369237" className="hover:text-red-400 transition-colors">
+                        +91 63743 69237
+                      </a>
+                      <a href="tel:+919080410549" className="hover:text-red-400 transition-colors">
+                        +91 90804 10549
+                      </a>
+                    </div>
                   </li>
                   <li>
                     <span className="block text-xs uppercase tracking-widest text-red-500 font-semibold mb-1">
                       WhatsApp
                     </span>
                     <a
-                      href={
-                        process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
-                          ? `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Hi%20BugCab%2C%20I%27d%20like%20to%20discuss%20a%20project`
-                          : "#"
-                      }
-                      target={process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? "_blank" : undefined}
-                      rel={
-                        process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? "noopener noreferrer" : undefined
-                      }
-                      className="hover:text-red-400 transition-colors"
+                      href="https://wa.me/916374369237?text=Hi%20BugCab%2C%20I%27d%20like%20to%20discuss%20a%20project"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-red-400 transition-colors text-foreground font-medium"
                     >
-                      Contact via WhatsApp
+                      +91 6374369237
                     </a>
                   </li>
                   <li>
@@ -130,7 +159,7 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Right column — form */}
+            {/* Right column — Form matching reference screenshot 2 */}
             <form
               ref={formRef}
               onSubmit={async (e) => {
@@ -139,12 +168,14 @@ export function Contact() {
 
                 try {
                   const formData = new FormData(e.currentTarget);
+                  formData.set("service", selectedServices.join(", ") || "General Inquiry");
                   const result = await sendContactMessage(null, formData);
 
                   if (result.success) {
                     toast.success(result.message);
                     setSent(true);
                     formRef.current?.reset();
+                    setSelectedServices(["Website"]);
                     setTimeout(() => setSent(false), 5000);
                   } else {
                     toast.error(result.error || "Failed to send message.");
@@ -155,99 +186,85 @@ export function Contact() {
                   setIsPending(false);
                 }
               }}
-              className="grid gap-4 rounded-2xl sm:rounded-3xl border border-border bg-card p-5 sm:p-10 sm:grid-cols-2 lg:col-span-2"
+              className="flex flex-col gap-6 rounded-3xl border border-neutral-200/80 dark:border-white/10 bg-card p-6 sm:p-10 lg:col-span-2 shadow-2xl"
             >
-              <Field label="Name" name="name" placeholder="Jane Cooper" />
-              <Field label="Email" name="email" type="email" placeholder="jane@company.com" />
-              <Field label="Phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" />
+              <input type="hidden" name="service" value={selectedServices.join(", ")} />
+
+              {/* Row 1: Name & Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <Field label="Your name" name="name" placeholder="Jane Doe" required />
+                <Field label="Email" name="email" type="email" placeholder="jane@company.com" required />
+              </div>
+
+              {/* Row 2: Phone & Company */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <Field label="Phone / WhatsApp" name="phone" type="tel" placeholder="+91 98765 43210" required />
+                <Field label="Company (optional)" name="company" type="text" placeholder="Company name" required={false} />
+              </div>
+
+              {/* Row 3: What do you need? (Interactive Multi-Select Chips) */}
+              <div className="flex flex-col gap-3">
+                <label className="text-sm font-semibold text-foreground">
+                  What do you need?
+                </label>
+                <div className="flex flex-wrap gap-2.5">
+                  {serviceOptions.map((service) => {
+                    const isSelected = selectedServices.includes(service);
+                    return (
+                      <button
+                        key={service}
+                        type="button"
+                        onClick={() => toggleService(service)}
+                        className={`px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer border flex items-center gap-1.5 ${
+                          isSelected
+                            ? "bg-[#FF2A2A] text-white border-[#FF2A2A] shadow-md shadow-red-500/20 scale-[1.02]"
+                            : "bg-neutral-100/80 dark:bg-neutral-900/80 border-neutral-200 dark:border-neutral-800 text-foreground hover:border-[#FF2A2A]/50 hover:bg-neutral-200/50 dark:hover:bg-neutral-800"
+                        }`}
+                      >
+                        {isSelected && <Check className="w-3.5 h-3.5 text-white stroke-[3]" />}
+                        {service}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Row 4: Message Textarea */}
               <div className="flex flex-col gap-2">
                 <label
-                  htmlFor="service"
-                  className="text-xs uppercase tracking-widest text-muted-foreground"
-                >
-                  Service Needed
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  required
-                  className="rounded-lg border border-border bg-background px-4 py-3
-                             text-sm text-foreground focus:border-red-500 focus:outline-none transition-colors"
-                >
-                  <option value="">Select a service...</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="mobile-app-development">Mobile App Development</option>
-                  <option value="ui-ux-design">UI/UX Design</option>
-                  <option value="digital-marketing">Digital Marketing & SEO</option>
-                  <option value="not-sure">Not sure yet — help me decide</option>
-                </select>
-              </div>
-              <div className="flex flex-col gap-2 sm:col-span-2">
-                <label
                   htmlFor="message"
-                  className="text-xs uppercase tracking-widest text-muted-foreground"
+                  className="text-sm font-semibold text-foreground"
                 >
-                  Message
+                  Tell us about your project — or just the problem
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
-                  placeholder="Tell us about your project..."
+                  rows={4}
+                  placeholder="What are you building? No solution yet? Just describe the problem — we'll research it and bring you one."
                   required
-                  className="rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-red-500 focus:outline-none transition-colors"
+                  className="rounded-2xl border border-neutral-200 dark:border-white/10 bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:border-[#FF2A2A] focus:outline-none transition-colors leading-relaxed"
                 />
               </div>
 
-              <div className="flex flex-col items-start justify-between gap-6 sm:col-span-2 sm:flex-row sm:items-center pt-2">
-                <div className="flex gap-3">
-                  {[
-                    {
-                      Icon: Twitter,
-                      href: "https://twitter.com/bugcab",
-                      label: "BugCab on Twitter / X",
-                    },
-                    {
-                      Icon: Linkedin,
-                      href: "https://linkedin.com/company/bugcab",
-                      label: "BugCab on LinkedIn",
-                    },
-                    {
-                      Icon: Github,
-                      href: "https://github.com/bugcab",
-                      label: "BugCab on GitHub",
-                    },
-                    {
-                      Icon: Instagram,
-                      href: "https://instagram.com/bugcab",
-                      label: "BugCab on Instagram",
-                    },
-                  ].map(({ Icon, href, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="flex h-12 w-12 items-center justify-center rounded-full
-                                 border border-border transition-colors
-                                 hover:border-red-500 hover:bg-red-500 hover:text-white text-foreground"
-                    >
-                      <Icon className="h-4 w-4" aria-hidden="true" />
-                    </a>
-                  ))}
-                </div>
+              {/* Row 5: Attach File & Submit Button */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                <label className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors">
+                  <Paperclip className="w-4 h-4 text-[#FF2A2A]" />
+                  <span>Attach a brief (optional)</span>
+                  <input type="file" name="attachment" className="hidden" />
+                </label>
 
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="inline-flex items-center gap-2 rounded-full bg-red-600 px-8 py-4 font-bold text-white transition-all hover:bg-red-500 active:scale-95 cursor-pointer shadow-lg shadow-red-600/10 hover:shadow-red-500/20 disabled:opacity-50 disabled:pointer-events-none"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#FF2A2A] hover:bg-[#d92323] px-8 py-3.5 text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg shadow-red-500/25 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   {isPending
                     ? "Sending..."
                     : sent
                       ? "Message Sent ✓"
-                      : "Let's Build Something Great →"}
+                      : "Send message ↗"}
                 </button>
               </div>
             </form>
@@ -263,15 +280,17 @@ function Field({
   name,
   type = "text",
   placeholder,
+  required = true,
 }: {
   label: string;
   name: string;
   type?: string;
   placeholder: string;
+  required?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={name} className="text-xs uppercase tracking-widest text-muted-foreground">
+      <label htmlFor={name} className="text-sm font-semibold text-foreground">
         {label}
       </label>
       <input
@@ -279,13 +298,13 @@ function Field({
         name={name}
         type={type}
         placeholder={placeholder}
-        required
+        required={required}
         autoComplete={
           name === "email" ? "email" : name === "phone" ? "tel" : name === "name" ? "name" : "off"
         }
-        className="rounded-lg border border-border bg-background px-4 py-3 text-sm
-                   text-foreground placeholder:text-muted-foreground/60
-                   focus:border-red-500 focus:outline-none transition-colors"
+        className="rounded-2xl border border-neutral-200 dark:border-white/10 bg-background px-4 py-3.5 text-sm
+                   text-foreground placeholder:text-neutral-400 dark:placeholder:text-neutral-600
+                   focus:border-[#FF2A2A] focus:outline-none transition-colors"
       />
     </div>
   );

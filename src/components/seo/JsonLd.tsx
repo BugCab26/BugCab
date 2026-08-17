@@ -18,8 +18,8 @@ export function JsonLd() {
         description:
           "IT solutions company in Erode, Tamil Nadu, India — building websites, mobile apps, UI/UX designs, digital marketing strategies and IT consulting for businesses across India.",
         foundingDate: "2022",
-        email: "hello@bugcab.com",
-        telephone: "+91-9876543210",
+        email: "bugcab.com@gmail.com",
+        telephone: "+91-6374369237",
         priceRange: "₹₹",
         areaServed: [
           { "@type": "Country", name: "India" },
@@ -44,8 +44,8 @@ export function JsonLd() {
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "customer service",
-          email: "hello@bugcab.com",
-          telephone: "+91-9876543210",
+          email: "bugcab.com@gmail.com",
+          telephone: "+91-6374369237",
           availableLanguage: ["English", "Tamil"],
         },
         sameAs: [
@@ -346,13 +346,13 @@ export function ContactJsonLd() {
         "@id": "https://bugcab.com/#organization",
         name: "BugCab IT Solutions",
         url: "https://bugcab.com",
-        email: "hello@bugcab.com",
+        email: "bugcab.com@gmail.com",
         availableLanguage: ["English", "Tamil"],
         contactPoint: [
           {
             "@type": "ContactPoint",
             contactType: "customer service",
-            email: "hello@bugcab.com",
+            email: "bugcab.com@gmail.com",
             availableLanguage: ["English", "Tamil"],
             hoursAvailable: {
               "@type": "OpeningHoursSpecification",

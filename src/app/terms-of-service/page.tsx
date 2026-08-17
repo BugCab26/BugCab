@@ -99,7 +99,7 @@ export default function TermsOfServicePage() {
           <p className="mt-2 font-semibold text-foreground">
             BugCab IT Solutions
             <br />
-            Email: hello@bugcab.com
+            Email: bugcab.com@gmail.com
           </p>
         </section>
       </div>

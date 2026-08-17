@@ -1,50 +1,61 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "./Reveal";
-import { ArrowRight, CheckCircle2, ShieldCheck, MessageSquare, Check } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldCheck, MessageSquare, Check, X, ExternalLink, Play, Sparkles } from "lucide-react";
 import Link from "next/link";
+
+function ProjectVideo({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.defaultMuted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      key={src}
+      src={src}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="auto"
+      className="w-full h-full object-cover"
+    />
+  );
+}
 
 const portfolioProjects = [
   {
     title: "Support Copilot for SaaS",
-    desc: "An AI-powered customer support copilot designed for B2B SaaS platforms. It ingests help center docs, resolves common queries instantly, and handsoff complex cases to human agents.",
-    whatWeDid: "Full-stack dev, UI/UX, AI model API.",
-    technologies: "Next.js, FastAPI, Python, Tailwind.",
+    description: "Draft replies and pull account context; reduced first-response time by 35%.",
+    deliverables: "AI Strategy, AI UX Flow, LLM Agent, RAG",
     industry: "SaaS",
-    image: "/images/robot_portfolio.png",
-    videoSrc: "/videos/project-copilot.mp4",
-  },
-  {
-    title: "Zero Two Four Motorsport",
-    desc: "A high-performance custom platform built for motorsport enthusiasts, complete with real-time analytics, media management, and live content updates.",
-    whatWeDid: "Full-stack web platform, custom admin panel.",
-    technologies: "Next.js, Node.js, Express, PostgreSQL.",
-    industry: "Motorsport",
-    image: "/images/motorsport_portfolio.png",
-    videoSrc: "/videos/project-red.mp4",
-  },
-  {
-    title: "MAAC Creative Academy",
-    desc: "An advanced digital learning and creativity portal built Salem's leading media academy, featuring interactive course dashboards and portfolio management.",
-    whatWeDid: "Web development, course manager, QA.",
-    technologies: "Next.js, TypeScript, PostgreSQL, Prisma.",
-    industry: "EdTech",
-    image: "/images/edtech_portfolio.png",
-    videoSrc: "/videos/project-gold.mp4",
+    videoSrc: "/projects/project1.mp4",
+    overview: {
+      challenge: "B2B SaaS platforms struggle with high support ticket volume during peak hours, causing slow response times and high operational costs.",
+      solution: "Built a custom RAG-powered AI support copilot that indexes documentation in real-time, handles 80% of routine customer queries, and seamlessly escalates complex requests to support agents with context.",
+      keyFeatures: [
+        "Instant vector search on help center documentation",
+        "Multi-turn conversation memory with human agent handoff",
+        "Custom dashboard for analytics, intent resolution & satisfaction metrics",
+        "Role-based access control and enterprise SOC-2 compliance"
+      ],
+      liveUrl: "/contact",
+    }
   },
 ];
 
 export function Projects() {
-  const [activeIdx, setActiveIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % portfolioProjects.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const [modalIdx, setModalIdx] = useState<number | null>(null);
+  const activeIdx = 0;
 
   return (
     <section id="projects" className="py-24 md:py-32 bg-background">
@@ -59,93 +70,75 @@ export function Projects() {
               PROJECTS BUILT FOR <span className="text-[#FF2A2A]">REAL</span> BUSINESSES.
             </h1>
             <p className="mt-6 max-w-3xl mx-auto text-neutral-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed font-medium">
-              From cross-platform mobile apps to bespoke SaaS platforms — here&apos;s a selection of
-              websites, web apps, and digital marketing projects we&apos;ve shipped for clients.
+              From motorsport platforms to education portals and home services apps — here&apos;s a selection of websites, web apps, and digital marketing projects <span className="text-[#FF2A2A]">BugCab</span> has shipped for clients.
             </p>
           </Reveal>
         </div>
 
-        {/* 1. Big Showcase Card with Auto Slider */}
+        {/* 1. Showcase Card matching reference screenshot 2 */}
         <Reveal className="mb-32">
-          <div className="group relative overflow-hidden rounded-[2rem] border border-neutral-200/80 dark:border-white/10 bg-neutral-950 shadow-2xl flex flex-col">
-            {/* Media container */}
-            <div className="w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden relative bg-neutral-900 flex items-center justify-center">
-              <AnimatePresence mode="wait">
-                <motion.video
-                  key={activeIdx}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster={portfolioProjects[activeIdx].image}
-                  className="w-full h-full object-cover"
-                  src={portfolioProjects[activeIdx].videoSrc}
-                />
-              </AnimatePresence>
-            </div>
+          {/* Outer Gradient Border Wrapper */}
+          <div
+            onClick={() => setModalIdx(activeIdx)}
+            className="group relative p-[10px] sm:p-[14px] rounded-[2.2rem] sm:rounded-[3.2rem] bg-[linear-gradient(90deg,#FF2A2A_0%,#DC2626_40%,#7F1D1D_75%,#1A0505_100%)] shadow-[0_25px_60px_-15px_rgba(255,42,42,0.45)] cursor-pointer transition-all duration-300 hover:scale-[1.01]"
+          >
+            {/* Inner Card Container */}
+            <div className="w-full h-full rounded-[1.8rem] sm:rounded-[2.4rem] overflow-hidden bg-neutral-950 flex flex-col">
+              {/* Media container — Video Player */}
+              <div className="w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden relative bg-neutral-900 flex items-center justify-center group/media">
+                <div className="w-full h-full">
+                  <ProjectVideo src={portfolioProjects[activeIdx].videoSrc} />
+                </div>
 
-            {/* Details Bar (Rich red gradient) */}
-            <div className="bg-[linear-gradient(135deg,#B31212_0%,#660A0A_100%)] p-8 sm:p-10 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-8 relative min-h-[180px]">
-              {/* Slider controls */}
-              <div className="absolute top-4 left-6 flex gap-2 z-20">
-                {portfolioProjects.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveIdx(idx)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      activeIdx === idx ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"
-                    }`}
-                    aria-label={`Go to project slide ${idx + 1}`}
-                  />
-                ))}
+                {/* Click to view overview overlay badge */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/media:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                  <div className="bg-[#FF2A2A] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 transform translate-y-4 group-hover/media:translate-y-0 transition-transform duration-300">
+                    <Sparkles className="w-4 h-4" /> Click to View Project Overview
+                  </div>
+                </div>
               </div>
 
-              {/* Slider content */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeIdx}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 w-full mt-2"
-                >
-                  <div className="flex-1">
-                    <h3 className="font-display text-3xl font-extrabold tracking-tight leading-none mb-3">
+              {/* Details Bar (Rich Red Gradient matching reference design) */}
+              <div className="bg-[linear-gradient(135deg,#FF2A2A_0%,#B91C1C_30%,#7F1D1D_60%,#450A0A_100%)] p-6 sm:p-8 md:p-10 text-white flex flex-col gap-6 relative">
+                {/* 3 Red/White Dots */}
+                <div className="flex gap-2 items-center z-20">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white opacity-95" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white opacity-70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white opacity-70" />
+                </div>
+
+                {/* Content Section with Top Border Line */}
+                <div className="border-t border-white/20 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-10 w-full">
+                  {/* Title */}
+                  <div className="max-w-xs">
+                    <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-white">
                       {portfolioProjects[activeIdx].title}
                     </h3>
-                    <p className="text-white/80 text-xs sm:text-sm font-medium leading-relaxed max-w-xl">
-                      {portfolioProjects[activeIdx].desc}
-                    </p>
                   </div>
 
-                  {/* Metrics / Details */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 border-t md:border-t-0 md:border-l border-white/20 pt-6 md:pt-0 md:pl-10 text-xs font-semibold uppercase tracking-wider">
+                  {/* 3 Columns matching reference screenshot */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 border-t lg:border-t-0 lg:border-l border-white/20 pt-6 lg:pt-0 lg:pl-10 text-xs font-semibold uppercase tracking-wider flex-1 w-full lg:w-auto">
                     <div>
-                      <span className="text-white/50 block mb-1">WHAT WE DID</span>
-                      <span className="text-white font-bold normal-case">
-                        {portfolioProjects[activeIdx].whatWeDid}
+                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">DESCRIPTION</span>
+                      <span className="text-white font-medium normal-case text-xs leading-relaxed block max-w-xs">
+                        {portfolioProjects[activeIdx].description}
                       </span>
                     </div>
                     <div>
-                      <span className="text-white/50 block mb-1">TECHNOLOGIES</span>
-                      <span className="text-white font-bold normal-case">
-                        {portfolioProjects[activeIdx].technologies}
+                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">DELIVERABLES</span>
+                      <span className="text-white font-medium normal-case text-xs leading-relaxed block">
+                        {portfolioProjects[activeIdx].deliverables}
                       </span>
                     </div>
                     <div>
-                      <span className="text-white/50 block mb-1">INDUSTRY</span>
-                      <span className="text-white font-bold normal-case">
+                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">INDUSTRY</span>
+                      <span className="text-white font-bold normal-case text-xs block">
                         {portfolioProjects[activeIdx].industry}
                       </span>
                     </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                </div>
+              </div>
             </div>
           </div>
         </Reveal>
@@ -308,6 +301,137 @@ export function Projects() {
           </Reveal>
         </div>
       </div>
+
+      {/* Interactive Project Overview Modal */}
+      <AnimatePresence>
+        {modalIdx !== null && (
+          <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setModalIdx(null)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            />
+
+            {/* Modal Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-4xl bg-neutral-950 border border-white/15 rounded-3xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] text-white z-10 my-auto"
+            >
+              {/* Modal Close Button */}
+              <button
+                onClick={() => setModalIdx(null)}
+                className="absolute top-4 right-4 z-30 p-2.5 rounded-full bg-black/60 hover:bg-[#FF2A2A] text-white border border-white/20 transition-all duration-200 cursor-pointer shadow-lg"
+                aria-label="Close Project Overview"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Video / Image Header Banner */}
+              <div className="relative w-full aspect-video sm:aspect-[21/9] bg-neutral-900 overflow-hidden">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                  src={portfolioProjects[modalIdx].videoSrc}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between flex-wrap gap-3">
+                  <span className="bg-[#FF2A2A] text-white text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full shadow-md">
+                    {portfolioProjects[modalIdx].industry}
+                  </span>
+                  <span className="text-xs text-white/70 font-mono">
+                    {portfolioProjects[modalIdx].deliverables}
+                  </span>
+                </div>
+              </div>
+
+              {/* Modal Content Body */}
+              <div className="p-6 sm:p-8 md:p-10 flex flex-col gap-6">
+                <div>
+                  <span className="text-xs uppercase tracking-[0.3em] text-[#FF2A2A] font-bold block mb-2">
+                    — Project Overview
+                  </span>
+                  <h2 className="font-display text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white">
+                    {portfolioProjects[modalIdx].title}
+                  </h2>
+                  <p className="mt-3 text-neutral-300 text-sm sm:text-base leading-relaxed font-medium max-w-3xl">
+                    {portfolioProjects[modalIdx].description}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-white/10 pt-6">
+                  {/* Challenge */}
+                  <div className="bg-neutral-900/60 rounded-2xl p-5 border border-white/5">
+                    <h4 className="text-xs uppercase tracking-wider font-bold text-[#FF2A2A] mb-2 flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4" /> The Challenge
+                    </h4>
+                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                      {portfolioProjects[modalIdx].overview.challenge}
+                    </p>
+                  </div>
+
+                  {/* Solution */}
+                  <div className="bg-neutral-900/60 rounded-2xl p-5 border border-white/5">
+                    <h4 className="text-xs uppercase tracking-wider font-bold text-[#FF2A2A] mb-2 flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4" /> BugCab Solution
+                    </h4>
+                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                      {portfolioProjects[modalIdx].overview.solution}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Key Deliverables & Features */}
+                <div className="border-t border-white/10 pt-6">
+                  <h4 className="text-xs uppercase tracking-wider font-bold text-white mb-4">
+                    Key Features & Deliverables
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {portfolioProjects[modalIdx].overview.keyFeatures.map((feat, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-300">
+                        <div className="w-4 h-4 rounded-full bg-[#FF2A2A]/20 border border-[#FF2A2A] text-[#FF2A2A] flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-2.5 h-2.5 stroke-[3]" />
+                        </div>
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Modal Footer CTA */}
+                <div className="border-t border-white/10 pt-6 flex items-center justify-between flex-wrap gap-4">
+                  <div className="text-xs text-neutral-400">
+                    <strong className="text-white">Deliverables:</strong> {portfolioProjects[modalIdx].deliverables}
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => setModalIdx(null)}
+                      className="px-5 py-2.5 rounded-xl border border-white/20 text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-white hover:border-white transition-colors cursor-pointer"
+                    >
+                      Close
+                    </button>
+                    <Link
+                      href="/contact"
+                      onClick={() => setModalIdx(null)}
+                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#FF2A2A] hover:bg-[#d92323] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg cursor-pointer"
+                    >
+                      Get Similar Solution <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

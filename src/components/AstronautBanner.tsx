@@ -50,16 +50,16 @@ export function AstronautBanner() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 sm:gap-4 mt-6 sm:mt-12 z-10">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-6 sm:mt-10 z-10 w-fit max-w-full">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-xl sm:rounded-2xl bg-white text-black font-bold text-xs sm:text-sm md:text-base px-5 sm:px-8 py-3 sm:py-3.5 uppercase tracking-wider hover:bg-neutral-200 transition-all duration-300 shadow-lg text-center"
+                className="inline-flex items-center justify-center rounded-xl bg-white text-black font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 uppercase tracking-wider hover:bg-neutral-200 hover:scale-[1.02] active:scale-98 transition-all duration-300 shadow-md text-center cursor-pointer"
               >
                 Start A Project
               </Link>
               <Link
                 href="/work"
-                className="inline-flex items-center justify-center rounded-xl sm:rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md text-white font-bold text-xs sm:text-sm md:text-base px-5 sm:px-8 py-3 sm:py-3.5 uppercase tracking-wider hover:bg-black/60 transition-all duration-300 shadow-lg text-center"
+                className="inline-flex items-center justify-center rounded-xl bg-black/40 border border-white/15 backdrop-blur-md text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 uppercase tracking-wider hover:bg-black/60 hover:scale-[1.02] active:scale-98 transition-all duration-300 shadow-md text-center cursor-pointer"
               >
                 Our Work
               </Link>

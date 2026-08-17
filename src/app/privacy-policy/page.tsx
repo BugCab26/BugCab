@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-xl font-bold text-foreground">5. Your Choices</h2>
           <p className="mt-3">
             You may request to access, update, correct, or delete your personal information by
-            emailing us at hello@bugcab.com.
+            emailing us at bugcab.com@gmail.com.
           </p>
         </section>
 
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
           <p className="mt-2 font-semibold text-foreground">
             BugCab IT Solutions
             <br />
-            Email: hello@bugcab.com
+            Email: bugcab.com@gmail.com
           </p>
         </section>
       </div>

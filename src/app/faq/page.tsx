@@ -32,7 +32,7 @@ const categories = [
       },
       {
         q: "How do I get started with BugCab?",
-        a: "Fill out our contact form or email hello@bugcab.com with a brief description of your project. We'll schedule a free 30-minute discovery call within 24 hours, understand your requirements, and send a fixed-price proposal. No commitment required.",
+        a: "Fill out our contact form or email bugcab.com@gmail.com with a brief description of your project. We'll schedule a free 30-minute discovery call within 24 hours, understand your requirements, and send a fixed-price proposal. No commitment required.",
       },
       {
         q: "Do you work with solo founders and freelancers — not just companies?",

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, BookOpen } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import gsap from "gsap";
@@ -278,8 +278,27 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Let's Talk Button & Mobile Menu */}
+          {/* Call to action & Blog Icon Button */}
           <div className="navbar-cta opacity-0 flex items-center gap-2">
+            {/* Standalone Blog Icon Button (Security / Shield badge style) */}
+            <div className="hidden md:block">
+              <Magnetic>
+                <Link
+                  href="/blog"
+                  title="Blog"
+                  aria-label="Blog"
+                  className={`group relative inline-flex h-[44px] w-[44px] items-center justify-center overflow-hidden transition-all duration-500 shadow-md hover:scale-[1.05] ${scrolled
+                      ? "bg-[#050505] border border-white/10 text-white rounded-[10px] hover:border-white/20"
+                      : "bg-neutral-950 border border-white/10 text-white dark:bg-black dark:text-white rounded-[10px] hover:border-white/20"
+                    }`}
+                >
+                  <BookOpen
+                    className={`h-4.5 w-4.5 transition-all duration-300 group-hover:scale-110 ${pathname === "/blog" ? "text-[#FF3B30]" : "text-white group-hover:text-[#FF3B30]"
+                      }`}
+                  />
+                </Link>
+              </Magnetic>
+            </div>
 
             <div className="hidden md:block">
               <Magnetic>
@@ -520,7 +539,10 @@ export function Navbar() {
                       className={`flex items-center justify-between border-b border-border/50 pb-4 text-3xl font-display font-extrabold transition-colors ${pathname === "/blog" ? "text-[#FF3B30]" : "text-foreground hover:text-[#FF3B30]"
                         }`}
                     >
-                      Blog
+                      <span className="flex items-center gap-3">
+                        <BookOpen className="h-7 w-7 text-[#FF3B30]" />
+                        Blog
+                      </span>
                     </Link>
                   </motion.div>
                 </div>

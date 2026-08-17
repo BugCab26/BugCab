@@ -45,10 +45,10 @@ export function Hero() {
         {/* Stats row */}
         <div className="mt-12 sm:mt-16 md:mt-24 lg:mt-32 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 md:gap-12 w-full">
           {[
-            { value: 50, suffix: "+", label: "PROJECTS DELIVERED" },
-            { value: 30, suffix: "+", label: "HAPPY CLIENTS" },
+            { value: 2, suffix: "+", label: "PROJECTS DELIVERED" },
+            { value: 2, suffix: "+", label: "HAPPY CLIENTS" },
             { value: 98, suffix: "%", label: "CLIENT RETENTION" },
-            { value: 5, suffix: "", label: "CORE SERVICES" },
+            { value: 4, suffix: "", label: "CORE SERVICES" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col">
               <div className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-foreground tracking-tight leading-none">

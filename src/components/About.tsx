@@ -96,10 +96,10 @@ export function About() {
           <Reveal>
             <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 w-full">
               {[
-                { v: 50, s: "+", l: "PROJECTS DELIVERED" },
-                { v: 30, s: "+", l: "HAPPY CLIENTS" },
+                { v: 2, s: "+", l: "PROJECTS DELIVERED" },
+                { v: 2, s: "+", l: "HAPPY CLIENTS" },
                 { v: 98, s: "%", l: "CLIENT RETENTION" },
-                { v: 5, s: "", l: "CORE SERVICES" },
+                { v: 4, s: "", l: "CORE SERVICES" },
               ].map((stat) => (
                 <div key={stat.l} className="flex flex-col items-start">
                   <div className="font-display text-5xl sm:text-6xl font-black text-foreground tracking-tight leading-none">
