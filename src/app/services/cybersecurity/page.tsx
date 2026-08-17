@@ -6,25 +6,25 @@ import { CybersecurityBentoGrid } from "@/components/services/CybersecurityBento
 import { CybersecurityFaq } from "@/components/services/CybersecurityFaq";
 
 export const metadata: Metadata = {
-  title: "Cybersecurity Services for Startups | BugCab",
+  title: "Cybersecurity Services for Businesses & Growing Teams | BugCab India",
   description:
-    "OWASP audits, SSL setup, WAF configuration, API security & vulnerability scanning for startups. Protect your codebase before launch.",
+    "OWASP audits, SSL setup, WAF configuration, API security & vulnerability scanning for businesses across India. Protect your codebase and customer data.",
   alternates: {
     canonical: "/services/cybersecurity",
   },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/services/cybersecurity",
-    title: "Cybersecurity Services for Startups | BugCab",
+    title: "Cybersecurity Services for Businesses & Growing Teams | BugCab India",
     description:
-      "OWASP audits, SSL setup, WAF configuration & API security for startups. Fixed-price security audits.",
+      "OWASP audits, SSL setup, WAF configuration & API security for growing businesses. Fixed-price security audits.",
     images: [{ url: "https://bugcab.com/images/og-cybersecurity.jpg", width: 1200, height: 630 }],
     siteName: "BugCab IT Solutions",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cybersecurity Services for Startups | BugCab",
-    description: "OWASP audits, SSL, WAF & API security for startups. Free consultation.",
+    title: "Cybersecurity Services for Businesses & Growing Teams | BugCab India",
+    description: "OWASP audits, SSL, WAF & API security for businesses. Free consultation.",
     images: ["https://bugcab.com/images/og-cybersecurity.jpg"],
   },
 };
@@ -42,10 +42,10 @@ export default function CybersecurityPage() {
               {
                 "@type": "Service",
                 "@id": "https://bugcab.com/services/cybersecurity",
-                name: "Cybersecurity Services for Startups",
+                name: "Cybersecurity Services for Businesses & Growing Teams",
                 alternateName: "Web Application Security Audit",
                 description:
-                  "OWASP Top 10 audits, SSL/TLS setup, WAF configuration, API security, vulnerability scanning, and database encryption for startups.",
+                  "OWASP Top 10 audits, SSL/TLS setup, WAF configuration, API security, vulnerability scanning, and database encryption for businesses.",
                 provider: { "@id": "https://bugcab.com/#organization" },
                 serviceType: "Cybersecurity",
                 url: "https://bugcab.com/services/cybersecurity",
@@ -79,7 +79,7 @@ export default function CybersecurityPage() {
         <Reveal className="overflow-visible">
           <div className="relative overflow-visible rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#00C247] via-[#008230] to-[#001005] text-white p-6 sm:p-10 md:p-14 lg:p-16 shadow-2xl min-h-[340px] sm:min-h-[400px] md:min-h-[440px] flex flex-col justify-between">
             {/* Pop-out Cyber Robot Graphic */}
-            <div className="absolute bottom-0 right-0 w-[260px] sm:w-[360px] md:w-[440px] lg:w-[490px] h-[115%] sm:h-[125%] pointer-events-none select-none z-20">
+            <div className="hidden md:block absolute bottom-0 right-0 w-[260px] sm:w-[360px] md:w-[440px] lg:w-[490px] h-[115%] sm:h-[125%] pointer-events-none select-none z-20">
               <Image
                 src="/images/cyber_robot.png"
                 alt="Cybersecurity Robot Graphic"

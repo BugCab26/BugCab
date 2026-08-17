@@ -6,24 +6,24 @@ import { SoftwareBentoGrid } from "@/components/services/SoftwareBentoGrid";
 import { WebDevFaq } from "@/components/services/WebDevFaq";
 
 export const metadata: Metadata = {
-  title: "Software Development Services for Startups | BugCab",
+  title: "Web Development for Businesses & Professionals | BugCab India",
   description:
-    "Custom web apps, mobile apps, backend APIs & software development with Next.js, React & TypeScript. Production-ready code with fixed pricing.",
+    "Custom web apps, mobile apps, backend APIs & software development with Next.js, React & TypeScript for businesses across India. Production-ready code with fixed pricing.",
   alternates: {
     canonical: "/services/web-development",
   },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/services/web-development",
-    title: "Software Development Services for Startups | BugCab",
+    title: "Web Development for Businesses & Professionals | BugCab India",
     description:
-      "Next.js, React & Node.js software development — mobile-first, fast-loading, and scalable.",
+      "Next.js, React & Node.js web development for businesses — mobile-first, fast-loading, and scalable.",
     images: [{ url: "https://bugcab.com/images/og-web-development.jpg", width: 1200, height: 630 }],
     siteName: "BugCab IT Solutions",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Software Development for Startups | BugCab",
+    title: "Web Development for Businesses & Professionals | BugCab India",
     description:
       "Custom web apps, mobile apps & backend APIs built with Next.js, React & TypeScript. Free quote in 24 hours.",
     images: ["https://bugcab.com/images/og-web-development.jpg"],
@@ -43,7 +43,7 @@ export default function SoftwareDevelopmentPage() {
               {
                 "@type": "Service",
                 "@id": "https://bugcab.com/services/web-development",
-                name: "Software Development for Startups",
+                name: "Web Development for Businesses & Professionals",
                 alternateName: "Custom Software Development",
                 description:
                   "Custom web applications, mobile apps, backend APIs, and software solutions built with Next.js, React, and TypeScript.",
@@ -71,7 +71,7 @@ export default function SoftwareDevelopmentPage() {
             </Link>
           </li>
           <li aria-hidden>/</li>
-          <li className="text-foreground font-bold">Software Development</li>
+          <li className="text-foreground font-bold">Web Development</li>
         </ol>
       </nav>
 
@@ -86,7 +86,7 @@ export default function SoftwareDevelopmentPage() {
               {/* Left Column: Hero Title & Description */}
               <div className="lg:col-span-7 flex flex-col items-start pr-0 lg:pr-4">
                 <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] mb-8 text-white animate-kinetic-blur">
-                  Software
+                  Web &amp; Software
                   <br />
                   Development
                 </h1>
@@ -99,7 +99,7 @@ export default function SoftwareDevelopmentPage() {
               </div>
 
               {/* Right Column: Pop-out 3D Character Illustration */}
-              <div className="lg:col-span-5 flex justify-center lg:justify-end relative -mt-6 sm:-mt-10 lg:-mt-24 h-[280px] sm:h-[340px] lg:h-[400px] w-full">
+              <div className="hidden md:flex lg:col-span-5 justify-center lg:justify-end relative -mt-6 sm:-mt-10 lg:-mt-24 h-[280px] sm:h-[340px] lg:h-[400px] w-full">
                 <div className="relative w-full h-full min-h-[280px] sm:min-h-[340px] lg:min-h-[400px]">
                   <Image
                     src="/services/software-character.png"

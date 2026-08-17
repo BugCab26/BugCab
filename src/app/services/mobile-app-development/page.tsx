@@ -6,16 +6,16 @@ import { Reveal } from "@/components/Reveal";
 import { MobileAppFaq } from "@/components/services/MobileAppFaq";
 
 export const metadata: Metadata = {
-  title: "Mobile App Development for Startups & Freelancers | BugCab",
+  title: "Mobile App Development for Businesses & Teams | BugCab India",
   description:
-    "Cross-platform iOS & Android app development with React Native & Flutter. MVP in 6–8 weeks, 60fps performance, both stores. Free quote in 24 hours.",
+    "Cross-platform iOS & Android app development with React Native & Flutter for businesses across India. MVP delivery in 6–8 weeks, 60fps performance, both stores.",
   alternates: {
     canonical: "/services/mobile-app-development",
   },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/services/mobile-app-development",
-    title: "Mobile App Development for Startups | BugCab",
+    title: "Mobile App Development for Businesses & Teams | BugCab India",
     description:
       "React Native & Flutter app development — one codebase, both stores, 60fps. MVP in 6–8 weeks.",
     images: [{ url: "https://bugcab.com/images/og-app-development.jpg", width: 1200, height: 630 }],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mobile App Development for Startups | BugCab",
+    title: "Mobile App Development for Businesses & Teams | BugCab India",
     description: "React Native & Flutter. iOS + Android. MVP in 6–8 weeks. Free quote.",
     images: ["https://bugcab.com/images/og-app-development.jpg"],
   },
@@ -225,10 +225,10 @@ export default function MobileAppDevelopmentPage() {
               {
                 "@type": "Service",
                 "@id": "https://bugcab.com/services/mobile-app-development",
-                name: "Mobile App Development for Startups",
-                alternateName: "React Native Flutter App Development",
+                name: "Mobile App Development for Businesses & Teams",
+                alternateName: "React Native & Flutter App Development",
                 description:
-                  "Cross-platform iOS and Android mobile app development with React Native and Flutter for startups and freelancers. MVP delivery in 6–8 weeks.",
+                  "Cross-platform iOS and Android mobile app development with React Native and Flutter for businesses and growing teams. MVP delivery in 6–8 weeks.",
                 provider: { "@id": "https://bugcab.com/#organization" },
                 serviceType: "Mobile App Development",
                 url: "https://bugcab.com/services/mobile-app-development",
@@ -320,7 +320,7 @@ export default function MobileAppDevelopmentPage() {
               — Mobile App Development
             </span>
             <h1 className="mt-6 font-display text-4xl sm:text-6xl font-bold leading-tight text-foreground tracking-tight">
-              Mobile App Development for <span className="text-lime">Startups & Freelancers.</span>
+              Mobile App Development for <span className="text-lime">Businesses &amp; Teams.</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
               Cross-platform iOS and Android apps built with React Native and Flutter — one

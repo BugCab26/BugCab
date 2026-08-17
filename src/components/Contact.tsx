@@ -11,22 +11,22 @@ export function Contact() {
   const [isPending, setIsPending] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   return (
-    <section id="contact" className="relative overflow-hidden py-32 bg-background">
+    <section id="contact" className="relative overflow-hidden py-16 sm:py-32 bg-background">
       {/* Background Glow */}
       <div className="absolute -bottom-40 left-1/2 h-96 w-[600px] -translate-x-1/2 rounded-full bg-red-500/15 blur-[140px] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal>
           <div className="text-center">
             <span className="text-xs uppercase tracking-[0.4em] text-red-500 font-bold">
               — Get In Touch
             </span>
-            <h1 className="mt-4 font-display text-5xl font-bold leading-[0.95] sm:text-7xl lg:text-8xl text-foreground">
+            <h1 className="mt-4 font-display text-3xl font-bold leading-[0.98] sm:text-7xl lg:text-8xl text-foreground uppercase tracking-tight">
               Start Your <span className="text-red-500">Project</span> with BugCab.
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
-              Whether you need a startup website, a cross-platform mobile app, a UI/UX design
-              refresh, or a full digital marketing strategy — fill in the form and we'll send you a
+            <p className="mx-auto mt-4 sm:mt-6 max-w-xl text-xs sm:text-base text-muted-foreground leading-relaxed font-medium">
+              Whether you need a custom business website, a cross-platform mobile app, a UI/UX design
+              refresh, digital marketing, or IT consulting — fill in the form and we'll send you a
               free, no-obligation quote within 24 hours.
             </p>
           </div>
@@ -155,8 +155,7 @@ export function Contact() {
                   setIsPending(false);
                 }
               }}
-              className="grid gap-4 rounded-3xl border border-border bg-card
-                         p-6 sm:p-10 sm:grid-cols-2 lg:col-span-2"
+              className="grid gap-4 rounded-2xl sm:rounded-3xl border border-border bg-card p-5 sm:p-10 sm:grid-cols-2 lg:col-span-2"
             >
               <Field label="Name" name="name" placeholder="Jane Cooper" />
               <Field label="Email" name="email" type="email" placeholder="jane@company.com" />

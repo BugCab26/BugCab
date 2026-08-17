@@ -16,12 +16,18 @@ export function JsonLd() {
           height: 40,
         },
         description:
-          "BugCab is an IT solutions company building websites, mobile apps, UI/UX designs, and digital marketing strategies for startups and freelancers.",
+          "IT solutions company in Erode, Tamil Nadu, India — building websites, mobile apps, UI/UX designs, digital marketing strategies and IT consulting for businesses across India.",
         foundingDate: "2022",
         email: "hello@bugcab.com",
         telephone: "+91-9876543210",
         priceRange: "₹₹",
-        areaServed: ["IN", "Erode", "Salem", "Chennai", "Bangalore", "Tamil Nadu", "India"],
+        areaServed: [
+          { "@type": "Country", name: "India" },
+          { "@type": "City", name: "Erode" },
+          { "@type": "City", name: "Salem" },
+          { "@type": "City", name: "Coimbatore" },
+          { "@type": "State", name: "Tamil Nadu" },
+        ],
         address: {
           "@type": "PostalAddress",
           streetAddress: "Brough Road, Perundurai Road",
@@ -45,7 +51,7 @@ export function JsonLd() {
         sameAs: [
           "https://twitter.com/bugcab",
           "https://linkedin.com/company/bugcab",
-          "https://github.com/bugcab",
+          "https://github.com/dineshkumar0202",
           "https://instagram.com/bugcab",
         ],
       },
@@ -55,11 +61,11 @@ export function JsonLd() {
         url: "https://bugcab.com",
         name: "BugCab IT Solutions",
         description:
-          "IT solutions for startups and freelancers — web development, mobile apps, UI/UX design, and digital marketing.",
+          "IT solutions for businesses and professionals — web development, mobile apps, UI/UX design, and digital marketing.",
         publisher: {
           "@id": "https://bugcab.com/#organization",
         },
-        inLanguage: "en",
+        inLanguage: "en-IN",
       },
     ],
   };
@@ -79,10 +85,10 @@ export function FaqJsonLd() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What IT services does BugCab offer for startups?",
+        name: "What IT services does BugCab offer for businesses?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "BugCab offers five core services tailored for startups and freelancers: web development (Next.js, React), mobile app development (React Native, Flutter), UI/UX design (Figma), digital marketing & SEO, and cybersecurity. You can hire us for one service or hand us the entire stack.",
+          text: "BugCab offers core digital services tailored for businesses and professionals: web development (Next.js, React), mobile app development (React Native, Flutter), UI/UX design (Figma), digital marketing & SEO, IT consulting, and cybersecurity. You can hire us for one service or hand us the entire tech stack.",
         },
       },
       {
@@ -90,23 +96,23 @@ export function FaqJsonLd() {
         name: "How much does it cost to build a website or app?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Every project is scoped individually based on features, database complexity, and design requirements. We offer transparent, fixed-cost quotes so co-founders and solo founders know the exact investment beforehand. Contact us for a free quote and we'll give you a transparent, itemised estimate within 24 hours.",
+          text: "Every project is scoped individually based on features, database complexity, and design requirements. We offer transparent, fixed-cost quotes so business leaders and founders know the exact investment beforehand. Contact us for a free quote within 24 hours.",
         },
       },
       {
         "@type": "Question",
-        name: "How long does it take to build an MVP for a startup?",
+        name: "How long does it take to build a digital product or app?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "A focused MVP typically takes 6 to 8 weeks with BugCab. We work in two-week agile sprints so you see progress continuously. Larger platforms can take 3 to 5 months.",
+          text: "A focused web project or app MVP typically takes 6 to 8 weeks with BugCab. We work in agile sprints so you see progress continuously. Custom corporate platforms can take 3 to 5 months.",
         },
       },
       {
         "@type": "Question",
-        name: "Do you work with freelancers and solo founders, not just companies?",
+        name: "Do you work with independent professionals and growing businesses?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Absolutely — freelancers and solo founders are a core part of who we build for. We offer startup-friendly budgets, flexible engagement models, and clear communication throughout.",
+          text: "Absolutely — businesses, founders, and independent professionals are who we build for. We offer flexible pricing models, transparent scoping, and continuous communication throughout.",
         },
       },
       {
@@ -114,7 +120,7 @@ export function FaqJsonLd() {
         name: "Do you provide post-launch support and maintenance?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Every project includes a 30-day post-launch support window at no extra cost. After that, we offer monthly maintenance retainers covering bug fixes, security updates, performance monitoring, and minor feature additions.",
+          text: "Yes. Every project includes a 30-day post-launch support window at no extra cost. After that, we offer monthly maintenance retainers covering bug fixes, security updates, performance monitoring, and feature additions.",
         },
       },
       {
@@ -127,7 +133,7 @@ export function FaqJsonLd() {
       },
       {
         "@type": "Question",
-        name: "Can BugCab handle both design and development for my project?",
+        name: "Can BugCab handle both design and development for my business?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "Yes — BugCab handles UI/UX design, frontend development, backend development, and deployment end-to-end, giving you a single point of accountability.",
@@ -138,7 +144,7 @@ export function FaqJsonLd() {
         name: "How do I get started with BugCab?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Fill out our contact form or email us with a brief description of your project. We'll schedule a free 30-minute discovery call and send you a detailed proposal within 48 hours. No commitment required.",
+          text: "Fill out our contact form or email us with a brief description of your project. We'll schedule a discovery call and send you a detailed proposal within 48 hours. No commitment required.",
         },
       },
     ],
@@ -159,10 +165,10 @@ export function ServicesJsonLd() {
       {
         "@type": "Service",
         "@id": "https://bugcab.com/services/web-development",
-        name: "Web Development for Startups",
+        name: "Web Development for Businesses & Professionals",
         alternateName: "Custom Website Development",
         description:
-          "Custom websites and web apps built with Next.js, React, and TypeScript for startups and freelancers. Mobile-first, SEO-optimised, and production-ready.",
+          "Custom websites and web apps built with Next.js, React, and TypeScript for businesses and professionals. Mobile-first, SEO-optimised, and production-ready.",
         provider: {
           "@id": "https://bugcab.com/#organization",
         },
@@ -172,10 +178,10 @@ export function ServicesJsonLd() {
       {
         "@type": "Service",
         "@id": "https://bugcab.com/services/mobile-app-development",
-        name: "Mobile App Development for Startups",
-        alternateName: "React Native Flutter App Development",
+        name: "Mobile App Development for Businesses & Teams",
+        alternateName: "React Native & Flutter App Development",
         description:
-          "Cross-platform iOS and Android mobile apps built with React Native and Flutter for startups and freelancers.",
+          "Cross-platform iOS and Android mobile apps built with React Native and Flutter for businesses and growing teams.",
         provider: {
           "@id": "https://bugcab.com/#organization",
         },
@@ -185,10 +191,10 @@ export function ServicesJsonLd() {
       {
         "@type": "Service",
         "@id": "https://bugcab.com/services/ui-ux-design",
-        name: "UI/UX Design Services for Startups",
-        alternateName: "Figma UI Design",
+        name: "UI/UX Design Services for Businesses & Professionals",
+        alternateName: "Figma UI Design & Design Systems",
         description:
-          "User interface and UX design services for startups — wireframes, Figma prototypes, and design systems that convert visitors into customers.",
+          "User interface and UX design services for businesses — wireframes, Figma prototypes, and design systems that convert visitors into customers.",
         provider: {
           "@id": "https://bugcab.com/#organization",
         },
@@ -198,10 +204,10 @@ export function ServicesJsonLd() {
       {
         "@type": "Service",
         "@id": "https://bugcab.com/services/digital-marketing",
-        name: "Digital Marketing & SEO for Startups",
-        alternateName: "SEO Agency for Startups",
+        name: "Digital Marketing & SEO for Businesses in India",
+        alternateName: "SEO & Digital Marketing Agency",
         description:
-          "SEO audits, keyword strategy, and content marketing campaigns that drive organic traffic for startups and freelancers.",
+          "SEO audits, keyword strategy, and content marketing campaigns that drive organic traffic for growing businesses.",
         provider: {
           "@id": "https://bugcab.com/#organization",
         },
@@ -227,21 +233,21 @@ export function AboutJsonLd() {
         "@type": "AboutPage",
         "@id": "https://bugcab.com/about/#webpage",
         url: "https://bugcab.com/about",
-        name: "About BugCab — IT Solutions Company for Startups & Freelancers",
+        name: "About BugCab — IT Solutions Company for Businesses & Professionals",
         description:
-          "BugCab is an IT solutions company helping startups and freelancers ship websites, mobile apps, and digital products faster and more affordably.",
+          "BugCab is an IT solutions company in Erode, Tamil Nadu, helping businesses and professionals ship websites, mobile apps, and digital products.",
         isPartOf: { "@id": "https://bugcab.com/#website" },
         about: { "@id": "https://bugcab.com/#organization" },
-        inLanguage: "en",
+        inLanguage: "en-IN",
       },
       {
         "@type": "Person",
         "@id": "https://bugcab.com/#founder",
         name: "Dinesh Kumar",
-        jobTitle: "Founder & Full-Stack Developer",
+        jobTitle: "Founder & Full-Stack Lead",
         worksFor: { "@id": "https://bugcab.com/#organization" },
         url: "https://bugcab.com/about",
-        sameAs: ["https://github.com/bugcab", "https://linkedin.com/in/dineshkumar0202"],
+        sameAs: ["https://github.com/dineshkumar0202", "https://linkedin.com/in/dineshkumar0202"],
       },
     ],
   };
@@ -266,7 +272,7 @@ export function WorkJsonLd() {
         description:
           "Portfolio of web development, mobile app, and digital marketing projects delivered by BugCab for businesses.",
         isPartOf: { "@id": "https://bugcab.com/#website" },
-        inLanguage: "en",
+        inLanguage: "en-IN",
       },
       {
         "@type": "CreativeWork",
@@ -317,11 +323,11 @@ export function ContactJsonLd() {
         "@type": "ContactPage",
         "@id": "https://bugcab.com/contact/#webpage",
         url: "https://bugcab.com/contact",
-        name: "Contact BugCab — Hire an IT Company for Your Startup Project",
+        name: "Contact BugCab — Hire an IT Company for Your Business",
         description:
           "Contact BugCab to get a free quote for web development, mobile app development, UI/UX design, or digital marketing.",
         isPartOf: { "@id": "https://bugcab.com/#website" },
-        inLanguage: "en",
+        inLanguage: "en-IN",
         breadcrumb: {
           "@type": "BreadcrumbList",
           itemListElement: [
@@ -354,13 +360,6 @@ export function ContactJsonLd() {
               opens: "10:00",
               closes: "19:00",
             },
-          },
-          {
-            "@type": "ContactPoint",
-            contactType: "sales",
-            contactOption: "TollFree",
-            email: "hello@bugcab.com",
-            availableLanguage: ["English", "Tamil"],
           },
         ],
       },
@@ -405,7 +404,7 @@ export function TestimonialsJsonLd() {
             author: { "@type": "Person", name: "Rajesh Kannan" },
             datePublished: "2024-12-02",
             reviewBody:
-              "The absolute best choice for Indian startups. Shipped our MVP in weeks, not months.",
+              "The absolute best choice for growing businesses. Shipped our web platform in weeks, not months.",
             reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
           },
           {
@@ -439,7 +438,7 @@ export function PricingJsonLd() {
         url: "https://bugcab.com/pricing",
         name: "IT Company Pricing India — BugCab Transparent Service Pricing",
         description:
-          "Itemised pricing breakdown for web development, mobile apps, UI/UX design, and digital marketing retainers for startups in India.",
+          "Itemised pricing breakdown for web development, mobile apps, UI/UX design, and digital marketing retainers for businesses in India.",
         isPartOf: { "@id": "https://bugcab.com/#website" },
       },
       {
@@ -462,7 +461,7 @@ export function PricingJsonLd() {
       },
       {
         "@type": "PriceSpecification",
-        name: "SaaS / Full Stack MVP",
+        name: "SaaS / Custom Platform",
         price: "60000",
         priceCurrency: "INR",
       },

@@ -16,12 +16,14 @@ export function HomeServices() {
                 // OUR SERVICES
               </span>
               <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-foreground uppercase leading-[1.05] max-w-2xl">
-                IT SERVICES BUILT FOR YOUR <span className="text-[#FF3B30]">BUSINESS.</span>
+                DIGITAL PRODUCTS &amp; IT SERVICES —{" "}
+                <span className="text-[#FF3B30]">BUILT FOR YOUR BUSINESS.</span>
               </h2>
             </div>
             <p className="text-neutral-500 font-medium text-sm sm:text-base max-w-md leading-relaxed">
-              Everything from custom software development and cybersecurity to UI/UX design and
-              digital marketing, engineered specifically for growing startups.
+              From your first digital product to your next business milestone — web development,
+              mobile apps, UI/UX design, digital marketing, and IT consulting, all delivered under
+              one roof.
             </p>
           </div>
         </Reveal>
@@ -32,13 +34,13 @@ export function HomeServices() {
           <Reveal className="col-span-12 lg:col-span-7">
             <Link
               href="/services/web-development"
-              className="group relative rounded-[32px] bg-[#FFA08B] text-neutral-950 p-8 sm:p-10 flex flex-col justify-between min-h-[420px] overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 block cursor-pointer"
+              className="group relative rounded-[24px] sm:rounded-[32px] bg-[#FFA08B] text-neutral-950 p-6 sm:p-10 flex flex-col justify-between min-h-[380px] sm:min-h-[420px] overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 block cursor-pointer"
             >
               <div className="z-10">
-                <span className="inline-block text-[11px] font-mono font-bold tracking-wider uppercase bg-black/10 text-neutral-900 px-3.5 py-1.5 rounded-full mb-6">
-                  Startups &amp; Scale-ups • 100% Custom Code • Fast Execution
+                <span className="inline-block max-w-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-black/10 text-neutral-900 px-3.5 py-1.5 rounded-full mb-6 leading-relaxed break-words">
+                  Businesses &amp; Teams • 100% Custom Code • Fast Execution
                 </span>
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-neutral-950 flex items-center gap-2">
+                <h3 className="font-display text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-neutral-950 flex items-center gap-2">
                   Software Development{" "}
                   <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
                 </h3>
@@ -61,13 +63,13 @@ export function HomeServices() {
           <Reveal className="col-span-12 lg:col-span-5">
             <Link
               href="/services/cybersecurity"
-              className="group relative rounded-[32px] bg-neutral-100 dark:bg-[#1E1E24] text-foreground p-8 sm:p-10 flex flex-col justify-between min-h-[420px] overflow-hidden shadow-lg border border-neutral-200/80 dark:border-white/10 transition-transform duration-300 hover:-translate-y-1 block cursor-pointer"
+              className="group relative rounded-[24px] sm:rounded-[32px] bg-neutral-100 dark:bg-[#1E1E24] text-foreground p-6 sm:p-10 flex flex-col justify-between min-h-[380px] sm:min-h-[420px] overflow-hidden shadow-lg border border-neutral-200/80 dark:border-white/10 transition-transform duration-300 hover:-translate-y-1 block cursor-pointer"
             >
               <div className="z-10">
-                <span className="inline-block text-[11px] font-mono font-bold tracking-wider uppercase bg-black/5 dark:bg-white/10 text-foreground px-3.5 py-1.5 rounded-full mb-6">
+                <span className="inline-block max-w-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-black/5 dark:bg-white/10 text-foreground px-3.5 py-1.5 rounded-full mb-6 leading-relaxed break-words">
                   Penetration Testing • Vulnerability Scans • Zero Trust
                 </span>
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-foreground flex items-center gap-2">
+                <h3 className="font-display text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-foreground flex items-center gap-2">
                   Cybersecurity{" "}
                   <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
                 </h3>
@@ -90,13 +92,13 @@ export function HomeServices() {
           <Reveal className="col-span-12 lg:col-span-5">
             <Link
               href="/services/ui-ux-design"
-              className="group relative rounded-[32px] bg-neutral-950 text-white p-8 sm:p-10 flex flex-col justify-between min-h-[420px] overflow-hidden shadow-lg border border-white/10 transition-transform duration-300 hover:-translate-y-1 block cursor-pointer"
+              className="group relative rounded-[24px] sm:rounded-[32px] bg-neutral-950 text-white p-6 sm:p-10 flex flex-col justify-between min-h-[380px] sm:min-h-[420px] overflow-hidden shadow-lg border border-white/10 transition-transform duration-300 hover:-translate-y-1 block cursor-pointer"
             >
               <div className="z-10">
-                <span className="inline-block text-[11px] font-mono font-bold tracking-wider uppercase bg-white/10 text-white px-3.5 py-1.5 rounded-full mb-6">
+                <span className="inline-block max-w-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-white/10 text-white px-3.5 py-1.5 rounded-full mb-6 leading-relaxed break-words">
                   Figma Systems • Wireframes • Interactive Prototypes
                 </span>
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white flex items-center gap-2">
+                <h3 className="font-display text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white flex items-center gap-2">
                   UI/UX Design{" "}
                   <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
                 </h3>
@@ -119,13 +121,13 @@ export function HomeServices() {
           <Reveal className="col-span-12 lg:col-span-7">
             <Link
               href="/services/digital-marketing"
-              className="group relative rounded-[32px] bg-[#FF5436] text-white p-8 sm:p-10 flex flex-col justify-between min-h-[420px] overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 block cursor-pointer"
+              className="group relative rounded-[24px] sm:rounded-[32px] bg-[#FF5436] text-white p-6 sm:p-10 flex flex-col justify-between min-h-[380px] sm:min-h-[420px] overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 block cursor-pointer"
             >
               <div className="z-10">
-                <span className="inline-block text-[11px] font-mono font-bold tracking-wider uppercase bg-black/15 text-white px-3.5 py-1.5 rounded-full mb-6">
+                <span className="inline-block max-w-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-black/15 text-white px-3.5 py-1.5 rounded-full mb-6 leading-relaxed break-words">
                   SEO • Content Strategy • Google Rankings
                 </span>
-                <h3 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white flex items-center gap-2">
+                <h3 className="font-display text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white flex items-center gap-2">
                   Digital Marketing &amp; SEO{" "}
                   <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
                 </h3>

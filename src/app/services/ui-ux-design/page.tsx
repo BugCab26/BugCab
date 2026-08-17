@@ -6,26 +6,26 @@ import { UiUxBentoGrid } from "@/components/services/UiUxBentoGrid";
 import { UiUxDesignFaq } from "@/components/services/UiUxDesignFaq";
 
 export const metadata: Metadata = {
-  title: "UI/UX Design Services for Startups & Freelancers | BugCab",
+  title: "UI/UX Design Services for Businesses & Professionals | BugCab India",
   description:
-    "Figma wireframes, UI design & design systems for startups and freelancers. Research-backed, pixel-perfect, and handed off ready for development.",
+    "Figma wireframes, UI design & design systems for businesses and professionals. Research-backed, pixel-perfect, and handed off ready for development.",
   alternates: {
     canonical: "/services/ui-ux-design",
   },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/services/ui-ux-design",
-    title: "UI/UX Design for Startups & Freelancers | BugCab",
+    title: "UI/UX Design Services for Businesses & Professionals | BugCab India",
     description:
-      "Figma wireframes, high-fidelity UI & design systems for startups. Every screen approved before development starts.",
+      "Figma wireframes, high-fidelity UI & design systems for growing businesses. Every screen approved before development starts.",
     images: [{ url: "https://bugcab.com/images/og-ui-ux-design.jpg", width: 1200, height: 630 }],
     siteName: "BugCab IT Solutions",
   },
   twitter: {
     card: "summary_large_image",
-    title: "UI/UX Design Services for Startups | BugCab",
+    title: "UI/UX Design Services for Businesses & Professionals | BugCab India",
     description:
-      "Figma UI design, wireframes & design systems for startups and freelancers. Free quote in 24 hours.",
+      "Figma UI design, wireframes & design systems for businesses. Free quote in 24 hours.",
     images: ["https://bugcab.com/images/og-ui-ux-design.jpg"],
   },
 };
@@ -43,10 +43,10 @@ export default function UiUxDesignPage() {
               {
                 "@type": "Service",
                 "@id": "https://bugcab.com/services/ui-ux-design",
-                name: "UI/UX Design Services for Startups",
-                alternateName: "Figma UI Design",
+                name: "UI/UX Design Services for Businesses & Professionals",
+                alternateName: "Figma UI Design & Design Systems",
                 description:
-                  "User interface and UX design for startups and freelancers — wireframes, Figma prototypes, and design systems that convert visitors into customers.",
+                  "User interface and UX design for businesses and professionals — wireframes, Figma prototypes, and design systems that convert visitors into customers.",
                 provider: { "@id": "https://bugcab.com/#organization" },
                 serviceType: "UI/UX Design",
                 url: "https://bugcab.com/services/ui-ux-design",
@@ -99,7 +99,7 @@ export default function UiUxDesignPage() {
               </div>
 
               {/* Right Column: Pop-out Cybernetic Character */}
-              <div className="lg:col-span-5 flex justify-center lg:justify-end relative -mt-12 sm:-mt-20 lg:-mt-28 h-[300px] sm:h-[440px] lg:h-[480px]">
+              <div className="hidden md:flex lg:col-span-5 justify-center lg:justify-end relative -mt-12 sm:-mt-20 lg:-mt-28 h-[300px] sm:h-[440px] lg:h-[480px]">
                 <div className="relative w-full h-full min-h-[300px] sm:min-h-[440px] lg:min-h-[480px]">
                   <Image
                     src="/services/uiux-hero.png"

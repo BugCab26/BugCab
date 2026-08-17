@@ -13,6 +13,7 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const inter = Inter({
@@ -20,6 +21,7 @@ const inter = Inter({
   variable: "--font-sans",
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const caveat = Caveat({
@@ -27,31 +29,25 @@ const caveat = Caveat({
   variable: "--font-script",
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  fallback: ["cursive", "sans-serif"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "BugCab Pvt. Ltd.",
-    template: "%s | BugCab Pvt. Ltd.",
+    default: "BugCab — IT Solutions for Businesses & Professionals | India",
+    template: "%s | BugCab",
   },
   description:
-    "BugCab is an IT solutions company helping startups and freelancers build websites, mobile apps, UI/UX designs & digital marketing strategies — fast and affordably.",
+    "BugCab is an IT solutions company in Erode, Tamil Nadu, India — building websites, mobile apps, UI/UX designs, digital marketing strategies and IT consulting for businesses and professionals.",
   keywords: [
-    "IT solutions company",
-    "web development for startups",
-    "mobile app development",
-    "UI UX design startups",
-    "digital marketing agency",
+    "IT solutions company India",
+    "web development company India",
+    "mobile app development India",
+    "IT company Erode Tamil Nadu",
+    "digital marketing agency India",
   ],
   authors: [{ name: "BugCab IT Solutions", url: "https://bugcab.com" }],
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ||
-      (process.env.VERCEL_ENV === "production"
-        ? "https://bugcab.com"
-        : process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}`
-          : "http://localhost:3000"),
-  ),
+  metadataBase: new URL("https://bugcab.com"),
   alternates: { canonical: "/" },
   icons: {
     icon: [
@@ -61,9 +57,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "BugCab Pvt. Ltd.",
+    title: "BugCab — IT Solutions for Businesses & Professionals",
     description:
-      "Web development, mobile apps, UI/UX design & digital marketing for startups and freelancers. Fast delivery. Transparent scoping.",
+      "Web development, mobile apps, UI/UX design & digital marketing for businesses and professionals. Fast delivery. Transparent scoping.",
     url: "https://bugcab.com",
     siteName: "BugCab IT Solutions",
     images: [
@@ -71,16 +67,16 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "BugCab IT Solutions — Web & App Development for Startups",
+        alt: "BugCab IT Solutions — Web & App Development for Businesses",
       },
     ],
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BugCab Pvt. Ltd.",
-    description: "Web development, mobile apps, UI/UX design & digital marketing for startups.",
+    title: "BugCab — IT Solutions for Businesses & Professionals",
+    description: "Web development, mobile apps, UI/UX design & digital marketing for businesses.",
     images: ["/og-image.png"],
     creator: "@bugcab",
   },

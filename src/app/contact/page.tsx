@@ -3,9 +3,9 @@ import { Contact } from "@/components/Contact";
 import { ContactJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Contact BugCab — Hire an IT Company for Your Startup Project",
+  title: "Contact BugCab — Hire an IT Solutions Company in India",
   description:
-    "Get a free quote from BugCab for web development, mobile app development, UI/UX design, or digital marketing. Response within 24 hours. No commitment required.",
+    "Get a free quote from BugCab in Erode, Tamil Nadu for web development, mobile app development, UI/UX design, or digital marketing. Response within 24 hours.",
   alternates: {
     canonical: "/contact",
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://bugcab.com/contact",
     title: "Contact BugCab — Get a Free IT Project Quote",
     description:
-      "Tell us about your startup project — web, app, design or marketing. Free quote within 24 hours. No commitment required.",
+      "Tell us about your business project — web, app, design, digital marketing or IT consulting. Free quote within 24 hours. No commitment required.",
     images: [{ url: "https://bugcab.com/images/og-contact.jpg", width: 1200, height: 630 }],
     siteName: "BugCab IT Solutions",
   },

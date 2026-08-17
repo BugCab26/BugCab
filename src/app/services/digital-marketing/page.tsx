@@ -6,18 +6,18 @@ import { MarketingBentoGrid } from "@/components/services/MarketingBentoGrid";
 import { DigitalMarketingFaq } from "@/components/services/DigitalMarketingFaq";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing & SEO Services for Startups | BugCab",
+  title: "Digital Marketing & SEO for Businesses in India | BugCab",
   description:
-    "SEO audits, keyword strategy, content marketing & Google rankings for startups and freelancers. Page-one rankings without bloated agency retainers.",
+    "SEO audits, keyword strategy, content marketing & Google rankings for businesses across India. Page-one rankings without bloated agency retainers.",
   alternates: {
     canonical: "/services/digital-marketing",
   },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/services/digital-marketing",
-    title: "Digital Marketing & SEO for Startups | BugCab",
+    title: "Digital Marketing & SEO for Businesses in India | BugCab",
     description:
-      "SEO audits, content strategy & Google rankings for startups. Transparent retainers with zero bloated agency fees.",
+      "SEO audits, content strategy & Google rankings for growing businesses. Transparent retainers with zero bloated agency fees.",
     images: [
       { url: "https://bugcab.com/images/og-digital-marketing.jpg", width: 1200, height: 630 },
     ],
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing & SEO for Startups | BugCab",
-    description: "SEO, content marketing & Google rankings for startups. Free audit.",
+    title: "Digital Marketing & SEO for Businesses in India | BugCab",
+    description: "SEO, content marketing & Google rankings for businesses. Free audit.",
     images: ["https://bugcab.com/images/og-digital-marketing.jpg"],
   },
 };
@@ -44,10 +44,10 @@ export default function DigitalMarketingPage() {
               {
                 "@type": "Service",
                 "@id": "https://bugcab.com/services/digital-marketing",
-                name: "Digital Marketing & SEO for Startups",
-                alternateName: "SEO Agency for Startups",
+                name: "Digital Marketing & SEO for Businesses in India",
+                alternateName: "SEO Agency for Businesses",
                 description:
-                  "SEO audits, keyword strategy, content marketing, and Google rankings for startups and freelancers.",
+                  "SEO audits, keyword strategy, content marketing, and Google rankings for businesses across India.",
                 provider: { "@id": "https://bugcab.com/#organization" },
                 serviceType: "Digital Marketing",
                 url: "https://bugcab.com/services/digital-marketing",
@@ -99,7 +99,7 @@ export default function DigitalMarketingPage() {
               </div>
 
               {/* Right Column: Pop-out 3D Target Illustration */}
-              <div className="lg:col-span-5 flex justify-center lg:justify-end relative -mt-6 sm:-mt-10 lg:-mt-24 h-[280px] sm:h-[340px] lg:h-[400px] w-full">
+              <div className="hidden md:flex lg:col-span-5 justify-center lg:justify-end relative -mt-6 sm:-mt-10 lg:-mt-24 h-[280px] sm:h-[340px] lg:h-[400px] w-full">
                 <div className="relative w-full h-full min-h-[280px] sm:min-h-[340px] lg:min-h-[400px]">
                   <Image
                     src="/services/target-dart.png"

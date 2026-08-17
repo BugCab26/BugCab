@@ -48,11 +48,11 @@ export function Testimonials() {
     <section id="testimonials" className="relative overflow-hidden bg-background py-24 md:py-32">
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Layered Title Section with Overlapping background text */}
-        <div className="relative text-center select-none pointer-events-none mb-[-25px] md:mb-[-45px] lg:mb-[-65px] z-0">
-          <span className="text-xs md:text-sm font-semibold tracking-widest text-neutral-500 uppercase block mb-3">
+        <div className="relative text-center select-none pointer-events-none mb-[-20px] sm:mb-[-45px] lg:mb-[-65px] z-0">
+          <span className="text-xs md:text-sm font-semibold tracking-widest text-neutral-500 uppercase block mb-2">
             (Why clients love BugCab)
           </span>
-          <h2 className="text-[12vw] sm:text-[10vw] lg:text-[160px] font-black leading-none tracking-tighter bg-gradient-to-b from-[#FF3B30] via-[#FF5028]/90 to-transparent bg-clip-text text-transparent pb-4 font-display">
+          <h2 className="text-4xl sm:text-7xl lg:text-[160px] font-black leading-none tracking-tighter bg-gradient-to-b from-[#FF3B30] via-[#FF5028]/90 to-transparent bg-clip-text text-transparent pb-4 font-display uppercase">
             Testimonials
           </h2>
         </div>
@@ -63,7 +63,7 @@ export function Testimonials() {
           <div className="lg:col-span-4 flex">
             <Reveal className="w-full flex h-full">
               <div
-                className="relative rounded-[32px] overflow-hidden p-8 md:p-10 text-white flex flex-col justify-between gap-10 w-full shadow-2xl bg-cover bg-center"
+                className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden p-6 sm:p-8 md:p-10 text-white flex flex-col justify-between gap-8 w-full shadow-2xl bg-cover bg-center"
                 style={{
                   backgroundImage:
                     "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80')",
@@ -74,28 +74,28 @@ export function Testimonials() {
 
                 <div className="relative z-10 flex flex-col justify-between h-full gap-8">
                   <div>
-                    <div className="font-display text-5xl md:text-6xl font-black text-white tracking-tight">
+                    <div className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
                       <Counter to={1} suffix="+" />
                     </div>
-                    <div className="mt-2 text-sm text-neutral-400 font-medium">
+                    <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">
                       Finalized Projects
                     </div>
                   </div>
 
                   <div className="border-t border-white/10 pt-6">
-                    <div className="font-display text-5xl md:text-6xl font-black text-white tracking-tight">
+                    <div className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
                       <Counter to={18} suffix="%" />
                     </div>
-                    <div className="mt-2 text-sm text-neutral-400 font-medium">
+                    <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">
                       Client satisfaction rate
                     </div>
                   </div>
 
                   <div className="border-t border-white/10 pt-6">
-                    <div className="font-display text-5xl md:text-6xl font-black text-white tracking-tight">
+                    <div className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
                       <Counter to={1} suffix="M" />
                     </div>
-                    <div className="mt-2 text-sm text-neutral-400 font-medium">Gross Revenue</div>
+                    <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">Gross Revenue</div>
                   </div>
                 </div>
               </div>
@@ -105,7 +105,7 @@ export function Testimonials() {
           {/* Right card — dynamic background image card with slider */}
           <div className="lg:col-span-8 flex">
             <Reveal className="w-full flex h-full">
-              <div className="relative w-full rounded-[32px] overflow-hidden min-h-[420px] md:min-h-full flex flex-col justify-between p-8 md:p-12 shadow-2xl bg-black">
+              <div className="relative w-full rounded-[24px] sm:rounded-[32px] overflow-hidden min-h-[380px] sm:min-h-[420px] md:min-h-full flex flex-col justify-between p-6 sm:p-8 md:p-12 shadow-2xl bg-black">
                 {/* Background image animations */}
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -151,7 +151,7 @@ export function Testimonials() {
                         exit={{ opacity: 0, y: -15 }}
                         transition={{ duration: 0.4 }}
                       >
-                        <p className="font-display text-2xl md:text-3xl font-extrabold leading-normal text-white tracking-tight">
+                        <p className="font-display text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug text-white tracking-tight">
                           “{testimonialsData[currentIndex].quote}”
                         </p>
                         <div className="mt-6 flex flex-col">

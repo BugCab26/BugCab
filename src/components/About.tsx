@@ -30,25 +30,25 @@ export function About() {
   return (
     <>
       {/* ───── Hero Card Section ───── */}
-      <section className="bg-background pt-36 pb-6">
-        <div className="relative mx-auto max-w-7xl px-6">
+      <section className="bg-background pt-24 sm:pt-36 pb-6">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <div className="relative w-full rounded-[32px] bg-gradient-to-br from-[#E60000] via-[#7C0000] to-[#0A0A0A] p-8 md:p-14 lg:p-16 text-white overflow-hidden shadow-2xl flex flex-col justify-between min-h-[380px] lg:min-h-[440px]">
-              {/* Vinyl Record & Tonearm Turntable Badge */}
-              <div className="absolute top-6 right-6 md:top-10 md:right-10 flex items-center justify-center select-none pointer-events-none">
+            <div className="relative w-full rounded-[24px] sm:rounded-[32px] bg-gradient-to-br from-[#E60000] via-[#7C0000] to-[#0A0A0A] p-6 sm:p-10 md:p-14 lg:p-16 text-white overflow-hidden shadow-2xl flex flex-col justify-between min-h-[340px] sm:min-h-[380px] lg:min-h-[440px]">
+              {/* Vinyl Record & Tonearm Turntable Badge (Hidden on extra small mobile screens to prevent text overlap) */}
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-10 md:right-10 hidden xs:flex items-center justify-center select-none pointer-events-none opacity-80 sm:opacity-100">
                 {/* Record Disk */}
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#0d0d0d] border-[3px] border-[#1e1e1e] flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.6)] relative">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-[#0d0d0d] border-[3px] border-[#1e1e1e] flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.6)] relative">
                   {/* Record grooves */}
                   <div className="absolute inset-1.5 rounded-full border border-white/5" />
                   <div className="absolute inset-3.5 rounded-full border border-white/5" />
                   <div className="absolute inset-5.5 rounded-full border border-white/5" />
                   {/* Center red label */}
-                  <div className="w-5 h-5 rounded-full bg-[#FF3B30] border border-black flex items-center justify-center">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#FF3B30] border border-black flex items-center justify-center">
                     <div className="w-1 h-1 rounded-full bg-white" />
                   </div>
                 </div>
                 {/* Tonearm */}
-                <div className="absolute top-[-4px] right-[-6px] w-8 h-14 origin-top-left translate-x-1.5 translate-y-[-2px]">
+                <div className="absolute top-[-4px] right-[-6px] w-6 h-10 sm:w-8 sm:h-14 origin-top-left translate-x-1.5 translate-y-[-2px]">
                   <svg
                     className="w-full h-full text-neutral-400 stroke-current fill-none"
                     viewBox="0 0 32 56"
@@ -73,15 +73,15 @@ export function About() {
               </div>
 
               {/* Top Content: Headline */}
-              <div className="max-w-2xl mt-4">
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-black leading-[1.05] tracking-tight uppercase">
+              <div className="max-w-2xl mt-2 sm:mt-4">
+                <h1 className="font-display text-2xl sm:text-4xl lg:text-[56px] font-black leading-[1.08] tracking-tight uppercase">
                   The IT Solutions Company Built for your business.
                 </h1>
               </div>
 
               {/* Bottom Content: Paragraph */}
-              <div className="max-w-3xl mt-12">
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed text-white/90 font-medium">
+              <div className="max-w-3xl mt-8 sm:mt-12">
+                <p className="text-xs sm:text-base md:text-lg leading-relaxed text-white/90 font-medium">
                   Founded in 2022 and headquartered in <strong>Erode & Salem, Tamil Nadu</strong>, BugCab was built with one clear purpose — give startups, founders, and freelancers across <strong>Bangalore, Tamil Nadu, and India</strong> access to the same quality of web development, mobile apps, and digital marketing that enterprise companies take for granted, at a cost that actually makes sense for early-stage budgets.
                 </p>
               </div>

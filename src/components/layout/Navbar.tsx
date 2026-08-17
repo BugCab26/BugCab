@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { ArrowRight, BookOpen, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import gsap from "gsap";
@@ -108,11 +108,10 @@ function LetTalkButton({ scrolled }: { scrolled?: boolean }) {
   return (
     <Link
       href="/contact"
-      className={`group relative inline-flex items-center justify-center overflow-hidden h-[44px] text-[13px] font-bold transition-all duration-500 shadow-md hover:scale-[1.03] ${
-        scrolled
+      className={`group relative inline-flex items-center justify-center overflow-hidden h-[44px] text-[13px] font-bold transition-all duration-500 shadow-md hover:scale-[1.03] ${scrolled
           ? "bg-white text-black border border-transparent rounded-[10px] px-6 hover:bg-neutral-100"
           : "bg-neutral-950 border border-white/5 text-white dark:bg-white dark:text-black rounded-[10px] px-6 hover:bg-neutral-900"
-      }`}
+        }`}
     >
       <div className="relative h-[16px] overflow-hidden flex flex-col items-center">
         <div className="transition-transform duration-300 ease-out group-hover:-translate-y-1/2 flex flex-col h-[32px]">
@@ -201,42 +200,38 @@ export function Navbar() {
       <Toaster />
       <header
         onMouseLeave={() => setShowMegaMenu(false)}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 px-6 ${
-          scrolled
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 px-6 ${scrolled
             ? "top-4 flex justify-center w-full"
             : "top-0 py-6 md:px-12 w-full"
-        }`}
+          }`}
       >
         <div
-          className={`mx-auto max-w-7xl flex items-center justify-between transition-all duration-500 ${
-            scrolled
+          className={`mx-auto max-w-7xl flex items-center justify-between transition-all duration-500 ${scrolled
               ? "w-fit gap-2 bg-[#0c0c0c]/90 dark:bg-[#0c0c0c]/90 backdrop-blur-lg border border-white/10 rounded-[14px] p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
               : "w-full"
-          }`}
+            }`}
         >
           {/* Logo */}
           <Link
             href="/"
-            className={`navbar-logo opacity-0 flex items-center gap-2.5 transition-all duration-500 ${
-              scrolled
-                ? "bg-white text-black rounded-[10px] px-4 py-2.5 h-[44px] shadow-md hover:scale-[1.02] active:scale-98"
+            className={`navbar-logo opacity-0 flex items-center gap-2.5 md:gap-3 transition-all duration-500 ${scrolled
+                ? "bg-white text-black rounded-[10px] md:rounded-[14px] px-3.5 md:px-4 py-1.5 h-[44px] md:h-[50px] shadow-md hover:scale-[1.02] active:scale-98"
                 : "hover:scale-[1.02] active:scale-98"
-            }`}
+              }`}
           >
-            <div className="flex h-6 w-6 items-center justify-center overflow-hidden relative">
+            <div className="flex h-8.5 w-8.5 md:h-11 md:w-11 items-center justify-center overflow-hidden relative shrink-0">
               <Image
                 src="/images/BugCab.png"
                 alt="BugCab logo"
-                width={24}
-                height={24}
+                width={44}
+                height={44}
                 priority
-                className="h-full w-full object-contain"
+                className="h-full w-full object-contain scale-[1.5]"
               />
             </div>
             <span
-              className={`font-display font-black text-lg tracking-tight uppercase leading-none mt-0.5 transition-colors duration-500 ${
-                scrolled ? "text-black" : "text-foreground"
-              }`}
+              className={`font-display font-black text-2xl md:text-3xl tracking-tight uppercase leading-none mt-0.5 transition-colors duration-500 ${scrolled ? "text-black" : "text-foreground"
+                }`}
             >
               BUG<span className="text-[#FF3B30]">CAB</span>
             </span>
@@ -244,11 +239,10 @@ export function Navbar() {
 
           {/* Desktop Links */}
           <nav
-            className={`hidden md:flex items-center transition-all duration-500 ${
-              scrolled
+            className={`hidden md:flex items-center transition-all duration-500 ${scrolled
                 ? "gap-1 bg-[#050505] border border-white/5 rounded-[10px] p-1 h-[44px]"
                 : "gap-8"
-            }`}
+              }`}
           >
             {links.map((l) => {
               const isActive = pathname === l.to;
@@ -263,11 +257,10 @@ export function Navbar() {
                       setShowMegaMenu(false);
                     }
                   }}
-                  className={`navbar-link opacity-0 group relative text-sm font-medium transition-all duration-300 ${
-                    scrolled
+                  className={`navbar-link opacity-0 group relative text-sm font-medium transition-all duration-300 ${scrolled
                       ? "rounded-[8px] px-5 py-2 text-neutral-300 hover:text-white"
                       : "py-2.5 " + (isActive ? "text-[#FF3B30]" : "text-neutral-400 hover:text-white")
-                  }`}
+                    }`}
                 >
                   <span className="relative z-10">{l.label}</span>
                   {!scrolled && isActive && (
@@ -287,15 +280,6 @@ export function Navbar() {
 
           {/* Let's Talk Button & Mobile Menu */}
           <div className="navbar-cta opacity-0 flex items-center gap-2">
-            {scrolled && (
-              <Link
-                href="/blog"
-                title="Blog"
-                className="bg-[#050505] border border-white/5 rounded-[10px] h-[44px] w-[44px] flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-inner"
-              >
-                <BookOpen className="h-4 w-4 text-white" />
-              </Link>
-            )}
 
             <div className="hidden md:block">
               <Magnetic>
@@ -341,11 +325,10 @@ export function Navbar() {
                               className="flex items-center gap-3 group/item py-2"
                             >
                               <span
-                                className={`font-display text-xl font-bold tracking-tight uppercase transition-colors ${
-                                  isHovered
+                                className={`font-display text-xl font-bold tracking-tight uppercase transition-colors ${isHovered
                                     ? "text-[#FF3B30]"
                                     : "text-neutral-500 hover:text-neutral-200"
-                                }`}
+                                  }`}
                               >
                                 {service.title}
                               </span>
@@ -463,9 +446,8 @@ export function Navbar() {
                             <Link
                               href={l.to}
                               onClick={() => setOpen(false)}
-                              className={`text-3xl font-display font-extrabold transition-colors ${
-                                isActive ? "text-[#FF3B30]" : "text-[#FF3B30] hover:text-[#FF3B30]/80"
-                              }`}
+                              className={`text-3xl font-display font-extrabold transition-colors ${isActive ? "text-[#FF3B30]" : "text-[#FF3B30] hover:text-[#FF3B30]/80"
+                                }`}
                             >
                               {l.label}
                             </Link>
@@ -518,9 +500,8 @@ export function Navbar() {
                         <Link
                           href={l.to}
                           onClick={() => setOpen(false)}
-                          className={`flex items-center justify-between border-b border-border/50 pb-4 text-3xl font-display font-extrabold transition-colors ${
-                            isActive ? "text-[#FF3B30]" : "text-foreground hover:text-[#FF3B30]"
-                          }`}
+                          className={`flex items-center justify-between border-b border-border/50 pb-4 text-3xl font-display font-extrabold transition-colors ${isActive ? "text-[#FF3B30]" : "text-foreground hover:text-[#FF3B30]"
+                            }`}
                         >
                           {l.label}
                         </Link>
@@ -536,9 +517,8 @@ export function Navbar() {
                     <Link
                       href="/blog"
                       onClick={() => setOpen(false)}
-                      className={`flex items-center justify-between border-b border-border/50 pb-4 text-3xl font-display font-extrabold transition-colors ${
-                        pathname === "/blog" ? "text-[#FF3B30]" : "text-foreground hover:text-[#FF3B30]"
-                      }`}
+                      className={`flex items-center justify-between border-b border-border/50 pb-4 text-3xl font-display font-extrabold transition-colors ${pathname === "/blog" ? "text-[#FF3B30]" : "text-foreground hover:text-[#FF3B30]"
+                        }`}
                     >
                       Blog
                     </Link>

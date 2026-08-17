@@ -28,12 +28,12 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="bg-background pt-16 pb-8 border-t border-border/60">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+    <footer className="bg-background pt-12 sm:pt-16 pb-8 border-t border-border/60">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 sm:gap-12">
           {/* Left — brand + email */}
-          <div className="flex flex-col gap-4 max-w-sm">
-            <div className="overflow-hidden rounded-[24px] shadow-lg relative w-[260px] h-[160px]">
+          <div className="flex flex-col gap-4 max-w-sm w-full">
+            <div className="overflow-hidden rounded-[20px] sm:rounded-[24px] shadow-lg relative w-full max-w-[260px] h-[150px] sm:h-[160px]">
               <Image
                 src="/images/car_footer.png"
                 alt="BugCab IT solutions — web and app development for startups India"
@@ -42,7 +42,7 @@ export function Footer() {
                 className="object-cover"
               />
             </div>
-            <div className="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wider text-neutral-500">
+            <div className="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wider text-neutral-500 flex-wrap">
               <span className="text-lime">•</span> Stay connected
               <a
                 href="mailto:hello@bugcab.com"
@@ -60,18 +60,18 @@ export function Footer() {
           </div>
 
           {/* Right — 3 columns */}
-          <div className="flex gap-12 md:gap-16 flex-wrap">
+          <div className="grid grid-cols-2 sm:flex gap-8 sm:gap-12 md:gap-16 w-full lg:w-auto">
             {/* Navigation */}
             <nav aria-label="Footer navigation">
-              <h3 className="text-[10px] uppercase tracking-[0.25em] text-neutral-400 font-bold mb-6">
+              <h3 className="text-[10px] uppercase tracking-[0.25em] text-neutral-400 font-bold mb-4 sm:mb-6">
                 Navigation
               </h3>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-2.5 sm:gap-3">
                 {navigation.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm font-semibold text-foreground hover:text-lime transition-colors"
+                      className="text-xs sm:text-sm font-semibold text-foreground hover:text-lime transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -82,15 +82,15 @@ export function Footer() {
 
             {/* Services */}
             <nav aria-label="BugCab services">
-              <h3 className="text-[10px] uppercase tracking-[0.25em] text-neutral-400 font-bold mb-6">
+              <h3 className="text-[10px] uppercase tracking-[0.25em] text-neutral-400 font-bold mb-4 sm:mb-6">
                 Services
               </h3>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-2.5 sm:gap-3">
                 {services.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm font-semibold text-foreground hover:text-lime transition-colors"
+                      className="text-xs sm:text-sm font-semibold text-foreground hover:text-lime transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -100,11 +100,11 @@ export function Footer() {
             </nav>
 
             {/* Socials */}
-            <nav aria-label="BugCab social media">
-              <h3 className="text-[10px] uppercase tracking-[0.25em] text-neutral-400 font-bold mb-6">
+            <nav aria-label="BugCab social media" className="col-span-2 sm:col-span-1">
+              <h3 className="text-[10px] uppercase tracking-[0.25em] text-neutral-400 font-bold mb-4 sm:mb-6">
                 Follow Us
               </h3>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-row sm:flex-col gap-4 sm:gap-3 flex-wrap">
                 {socials.map((item) => (
                   <li key={item.href}>
                     <a
@@ -112,7 +112,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`BugCab on ${item.label}`}
-                      className="text-sm font-semibold text-foreground hover:text-lime transition-colors"
+                      className="text-xs sm:text-sm font-semibold text-foreground hover:text-lime transition-colors"
                     >
                       {item.label}
                     </a>
@@ -125,13 +125,13 @@ export function Footer() {
 
         {/* Giant brand text — aria-hidden so it doesn't count as H2 */}
         <div
-          className="mt-20 flex w-full justify-center overflow-hidden border-t border-border/40 pt-10"
+          className="mt-12 sm:mt-20 flex w-full justify-center overflow-hidden border-t border-border/40 pt-6 sm:pt-10"
           aria-hidden="true"
           role="presentation"
         >
-          <span className="font-display text-[15vw] font-black leading-[0.9] tracking-tighter md:text-[180px] select-none">
+          <span className="font-display text-[14vw] sm:text-[15vw] font-black leading-[0.9] tracking-tighter md:text-[180px] select-none text-center block w-full truncate">
             <span className="text-lime">BUG</span>
-            <span className="text-foreground ml-[2vw] md:ml-[30px]">CAB</span>
+            <span className="text-foreground ml-[1.5vw] md:ml-[30px]">CAB</span>
           </span>
         </div>
 
