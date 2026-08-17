@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata } from "next";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Space_Grotesk, Inter, Caveat } from "next/font/google";
+import Script from "next/script";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -96,6 +97,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <meta name="google" content="notranslate" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-22VDRVRGH0"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-22VDRVRGH0');
+          `}
+        </Script>
       </head>
       <body suppressHydrationWarning>
         <script
