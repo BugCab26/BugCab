@@ -12,14 +12,14 @@ const testimonialsData = [
     author: "Ethan Moore",
     role: "Co-founder, NovaTech",
     image:
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=70&fm=webp",
   },
   {
     quote: "The absolute best choice for startups. Shipped our MVP in weeks, not months.",
     author: "Jane Doe",
     role: "Founder, TechCorp",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70&fm=webp",
   },
   {
     quote:
@@ -27,7 +27,7 @@ const testimonialsData = [
     author: "Sarah Jenkins",
     role: "Product Manager, LeapFlow",
     image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=70&fm=webp",
   },
 ];
 

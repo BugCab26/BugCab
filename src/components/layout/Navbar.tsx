@@ -9,13 +9,24 @@ import { ArrowRight, ChevronDown, BookOpen } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import gsap from "gsap";
-import {
-  WebDevMockup,
-  MobileMockup,
-  UIDesignMockup,
-  StrategyMockup,
-  SecurityMockup,
-} from "@/components/ServiceMockups";
+import dynamic from "next/dynamic";
+
+const WebDevMockup = dynamic(
+  () => import("@/components/ServiceMockups").then((mod) => mod.WebDevMockup),
+  { ssr: false },
+);
+const UIDesignMockup = dynamic(
+  () => import("@/components/ServiceMockups").then((mod) => mod.UIDesignMockup),
+  { ssr: false },
+);
+const StrategyMockup = dynamic(
+  () => import("@/components/ServiceMockups").then((mod) => mod.StrategyMockup),
+  { ssr: false },
+);
+const SecurityMockup = dynamic(
+  () => import("@/components/ServiceMockups").then((mod) => mod.SecurityMockup),
+  { ssr: false },
+);
 
 const links = [
   { label: "Home", to: "/" },
@@ -169,7 +180,7 @@ export function Navbar() {
     setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 

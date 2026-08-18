@@ -1,8 +1,25 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Reveal } from "./Reveal";
-import { WebDevMockup, UIDesignMockup, StrategyMockup, SecurityMockup } from "./ServiceMockups";
+
+const WebDevMockup = dynamic(
+  () => import("./ServiceMockups").then((mod) => mod.WebDevMockup),
+  { ssr: false },
+);
+const UIDesignMockup = dynamic(
+  () => import("./ServiceMockups").then((mod) => mod.UIDesignMockup),
+  { ssr: false },
+);
+const StrategyMockup = dynamic(
+  () => import("./ServiceMockups").then((mod) => mod.StrategyMockup),
+  { ssr: false },
+);
+const SecurityMockup = dynamic(
+  () => import("./ServiceMockups").then((mod) => mod.SecurityMockup),
+  { ssr: false },
+);
 
 export function HomeServices() {
   return (

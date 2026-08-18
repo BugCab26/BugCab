@@ -30,8 +30,7 @@ export function AstronautBanner() {
                 alt="3D Fluid Banner Graphic"
                 fill
                 sizes="(max-width: 640px) 190px, (max-width: 768px) 380px, (max-width: 1024px) 480px, 560px"
-                priority
-                fetchPriority="high"
+                loading="lazy"
                 className="object-contain drop-shadow-2xl"
                 style={{ mixBlendMode: "multiply" }}
               />

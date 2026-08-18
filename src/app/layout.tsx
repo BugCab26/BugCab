@@ -97,7 +97,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <meta name="google" content="notranslate" />
-        <link rel="preload" as="image" href="/images/BugCab.png" type="image/png" />
       </head>
       <body suppressHydrationWarning>
         <GoogleAnalytics />

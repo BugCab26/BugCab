@@ -96,10 +96,10 @@ export function CustomCursor() {
       animId = requestAnimationFrame(loop);
     };
 
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mousedown", onMouseDown);
-    window.addEventListener("mouseup", onMouseUp);
-    window.addEventListener("mouseover", onMouseOver);
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("mousedown", onMouseDown, { passive: true });
+    window.addEventListener("mouseup", onMouseUp, { passive: true });
+    window.addEventListener("mouseover", onMouseOver, { passive: true });
 
     loop();
 
