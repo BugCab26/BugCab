@@ -16,7 +16,9 @@ async function optimizeFavicon(filePath, maxDim, quality) {
     .toBuffer();
   fs.writeFileSync(filePath, buffer);
   const statAfter = fs.statSync(filePath);
-  console.log(`Optimized ${path.relative(publicDir, filePath)}: ${(fileBuffer.length / 1024).toFixed(1)}KB -> ${(statAfter.size / 1024).toFixed(1)}KB`);
+  console.log(
+    `Optimized ${path.relative(publicDir, filePath)}: ${(fileBuffer.length / 1024).toFixed(1)}KB -> ${(statAfter.size / 1024).toFixed(1)}KB`,
+  );
 }
 
 async function optimizeImage(filePath) {
@@ -44,9 +46,13 @@ async function optimizeImage(filePath) {
 
   if (buffer.length < fileBuffer.length) {
     fs.writeFileSync(filePath, buffer);
-    console.log(`Optimized ${path.relative(publicDir, filePath)} (${width}x${height}): ${(fileBuffer.length / 1024).toFixed(1)}KB -> ${(buffer.length / 1024).toFixed(1)}KB`);
+    console.log(
+      `Optimized ${path.relative(publicDir, filePath)} (${width}x${height}): ${(fileBuffer.length / 1024).toFixed(1)}KB -> ${(buffer.length / 1024).toFixed(1)}KB`,
+    );
   } else {
-    console.log(`Kept original ${path.relative(publicDir, filePath)}: ${(fileBuffer.length / 1024).toFixed(1)}KB`);
+    console.log(
+      `Kept original ${path.relative(publicDir, filePath)}: ${(fileBuffer.length / 1024).toFixed(1)}KB`,
+    );
   }
 }
 
@@ -78,7 +84,9 @@ async function run() {
       .png({ quality: 80, compressionLevel: 9, palette: true })
       .toBuffer();
     fs.writeFileSync(rootIco, buffer);
-    console.log(`Optimized root favicon.ico: ${(statBefore.size / 1024).toFixed(1)}KB -> ${(buffer.length / 1024).toFixed(1)}KB`);
+    console.log(
+      `Optimized root favicon.ico: ${(statBefore.size / 1024).toFixed(1)}KB -> ${(buffer.length / 1024).toFixed(1)}KB`,
+    );
   }
 
   await processDirectory(publicDir);

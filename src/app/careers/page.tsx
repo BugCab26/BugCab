@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 const positions = [
   {
     title: "Senior Full Stack Engineer",
@@ -54,7 +53,8 @@ export default function CareersPage() {
             With Us.
           </h1>
           <p className="text-neutral-400 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
-            We are a remote-first team of developers, designers, and security experts crafting exceptional digital products.
+            We are a remote-first team of developers, designers, and security experts crafting
+            exceptional digital products.
           </p>
         </div>
 
@@ -69,9 +69,7 @@ export default function CareersPage() {
                 <h3 className="text-xl font-bold font-display group-hover:text-[#FF3B30] transition-colors">
                   {pos.title}
                 </h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  {pos.desc}
-                </p>
+                <p className="text-neutral-400 text-sm leading-relaxed">{pos.desc}</p>
                 <div className="flex flex-wrap items-center gap-4 text-xs text-neutral-500 font-mono">
                   <div className="flex items-center gap-1.5">
                     <Briefcase className="h-3.5 w-3.5" />

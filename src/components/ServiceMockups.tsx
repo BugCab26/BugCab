@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const codeText = [
   "const webApp = new WebProject();",
@@ -15,8 +15,21 @@ const codeText = [
 // Mockup 1: IDE Code Typing (Web Development)
 export function WebDevMockup() {
   const [lines, setLines] = useState<string[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), {
+      threshold: 0.1,
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
     let active = true;
     let currentLine = 0;
     let currentChar = 0;
@@ -45,11 +58,11 @@ export function WebDevMockup() {
           return next;
         });
         currentChar++;
-        timer = setTimeout(type, 30);
+        timer = setTimeout(type, 50);
       } else {
         currentLine++;
         currentChar = 0;
-        timer = setTimeout(type, 150);
+        timer = setTimeout(type, 200);
       }
     };
 
@@ -58,10 +71,13 @@ export function WebDevMockup() {
       active = false;
       clearTimeout(timer);
     };
-  }, []);
+  }, [isVisible]);
 
   return (
-    <div className="w-[380px] max-w-full h-[190px] rounded-xl bg-neutral-950 border border-white/10 p-4 font-mono text-[10px] leading-relaxed text-neutral-300 shadow-2xl flex flex-col select-none">
+    <div
+      ref={containerRef}
+      className="w-[380px] max-w-full h-[190px] rounded-xl bg-neutral-950 border border-white/10 p-4 font-mono text-[10px] leading-relaxed text-neutral-300 shadow-2xl flex flex-col select-none"
+    >
       <div className="flex items-center gap-1 border-b border-white/5 pb-2 mb-2">
         <div className="w-2 h-2 rounded-full bg-red-500/80" />
         <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
@@ -209,16 +225,32 @@ export function UIDesignMockup() {
 // Mockup 4: Projected traffic chart (Digital Marketing)
 export function StrategyMockup() {
   const [percent, setPercent] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setPercent((prev) => (prev >= 100 ? 0 : prev + 1));
-    }, 50);
-    return () => clearInterval(timer);
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), {
+      threshold: 0.1,
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!isVisible) return;
+    const timer = setInterval(() => {
+      setPercent((prev) => (prev >= 100 ? 0 : prev + 1));
+    }, 100);
+    return () => clearInterval(timer);
+  }, [isVisible]);
+
   return (
-    <div className="w-[360px] max-w-full h-[180px] rounded-xl bg-neutral-950 border border-white/10 relative overflow-hidden p-4 flex flex-col justify-between select-none shadow-lg">
+    <div
+      ref={containerRef}
+      className="w-[360px] max-w-full h-[180px] rounded-xl bg-neutral-950 border border-white/10 relative overflow-hidden p-4 flex flex-col justify-between select-none shadow-lg"
+    >
       <div className="flex justify-between items-center">
         <span className="text-[9px] font-mono text-neutral-400 tracking-wider">
           SEO TRAFFIC INCREASE
@@ -258,6 +290,18 @@ export function SecurityMockup() {
   const [scanProgress, setScanProgress] = useState(0);
   const [logs, setLogs] = useState<string[]>([]);
   const [isLocked, setIsLocked] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), {
+      threshold: 0.1,
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (scanProgress >= 100) {
@@ -266,9 +310,10 @@ export function SecurityMockup() {
   }, [scanProgress]);
 
   useEffect(() => {
+    if (!isVisible) return;
     const timer = setInterval(() => {
       setScanProgress((prev) => (prev >= 100 ? 100 : prev + 1));
-    }, 40);
+    }, 80);
 
     const logTimer = setInterval(() => {
       setLogs((prev) => {
@@ -285,16 +330,19 @@ export function SecurityMockup() {
         if (nextList.length > 3) nextList.shift();
         return nextList;
       });
-    }, 700);
+    }, 1000);
 
     return () => {
       clearInterval(timer);
       clearInterval(logTimer);
     };
-  }, []);
+  }, [isVisible]);
 
   return (
-    <div className="w-[420px] max-w-full h-[230px] rounded-2xl bg-neutral-950 border border-white/10 relative overflow-hidden p-4.5 flex flex-col justify-between select-none shadow-2xl">
+    <div
+      ref={containerRef}
+      className="w-[420px] max-w-full h-[230px] rounded-2xl bg-neutral-950 border border-white/10 relative overflow-hidden p-4.5 flex flex-col justify-between select-none shadow-2xl"
+    >
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:16px_28px]" />
 

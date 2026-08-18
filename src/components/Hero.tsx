@@ -13,7 +13,8 @@ export function Hero() {
         <div className="max-w-5xl">
           {/* Hidden from UI, visible to Google */}
           <h1 className="sr-only">
-            BugCab — IT Solutions Company in Erode, Tamil Nadu | Web, Mobile App &amp; Digital Marketing Agency India
+            BugCab — IT Solutions Company in Erode, Tamil Nadu | Web, Mobile App &amp; Digital
+            Marketing Agency India
           </h1>
 
           {/* Visual H1 animation */}
@@ -38,7 +39,9 @@ export function Hero() {
             ))}
           </div>
           <p className="mt-6 max-w-2xl text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium">
-            BugCab is an IT solutions company based in Erode, Tamil Nadu — building digital products and delivering IT services for businesses and professionals across India, including custom websites, mobile apps, UI/UX designs, digital marketing, and tech consulting.
+            BugCab is an IT solutions company based in Erode, Tamil Nadu — building digital products
+            and delivering IT services for businesses and professionals across India, including
+            custom websites, mobile apps, UI/UX designs, digital marketing, and tech consulting.
           </p>
         </div>
 

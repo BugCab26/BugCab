@@ -47,9 +47,19 @@ export const metadata: Metadata = {
     "IT company Erode Tamil Nadu",
     "digital marketing agency India",
   ],
-  authors: [{ name: "BugCab IT Solutions", url: "https://bugcab.com" }],
-  metadataBase: new URL("https://bugcab.com"),
-  alternates: { canonical: "/" },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://bugcab.com"),
+  alternates: { canonical: "./" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/images/BugCab.png", type: "image/png" },

@@ -44,7 +44,9 @@ export function UiUxBentoGrid() {
               {/* Text & Content */}
               <div className="z-10 mt-auto">
                 <h3 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-white mb-2 leading-[1.05]">
-                  Product<br />Designing
+                  Product
+                  <br />
+                  Designing
                 </h3>
                 <p className="text-neutral-400 text-xs sm:text-sm font-medium tracking-wide">
                   UX Design | UI Development | UIUX Architecture
@@ -75,26 +77,63 @@ export function UiUxBentoGrid() {
                 <div className="mt-4 inline-flex items-center p-2 rounded-2xl bg-neutral-900/90 border border-white/10 shadow-lg w-fit">
                   <div className="flex items-center -space-x-3">
                     {/* Circle 1: Figma (White Ring Border) */}
-                    <div className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Figma">
-                      <svg className="w-full h-full" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38H19V28.5Z" fill="#1ABCFE"/>
-                        <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
-                        <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
-                        <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
-                        <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+                    <div
+                      className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Figma"
+                    >
+                      <svg
+                        className="w-full h-full"
+                        viewBox="0 0 38 57"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38H19V28.5Z"
+                          fill="#1ABCFE"
+                        />
+                        <path
+                          d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z"
+                          fill="#0ACF83"
+                        />
+                        <path
+                          d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z"
+                          fill="#FF7262"
+                        />
+                        <path
+                          d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z"
+                          fill="#F24E1E"
+                        />
+                        <path
+                          d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z"
+                          fill="#A259FF"
+                        />
                       </svg>
                     </div>
 
                     {/* Circle 2: Canva (White Ring Border) */}
-                    <div className="relative z-20 w-10 h-10 rounded-full bg-gradient-to-tr from-[#00C4CC] to-[#7D2AE8] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Canva">
-                      <svg className="w-full h-full text-white" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.8 14.4c-2.4 0-3.6-1.5-3.6-3.4 0-2.8 2.3-5.4 5.3-5.4 1.7 0 2.9.8 3.3 2.1l-1.4.6c-.3-.8-1-1.3-1.9-1.3-1.8 0-3.4 1.8-3.4 3.9 0 1.2.7 2.1 2.1 2.1 1.2 0 2.2-.7 2.7-1.6l1.3.7c-.8 1.4-2.3 2.3-4.4 2.3z"/>
+                    <div
+                      className="relative z-20 w-10 h-10 rounded-full bg-gradient-to-tr from-[#00C4CC] to-[#7D2AE8] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Canva"
+                    >
+                      <svg
+                        className="w-full h-full text-white"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.8 14.4c-2.4 0-3.6-1.5-3.6-3.4 0-2.8 2.3-5.4 5.3-5.4 1.7 0 2.9.8 3.3 2.1l-1.4.6c-.3-.8-1-1.3-1.9-1.3-1.8 0-3.4 1.8-3.4 3.9 0 1.2.7 2.1 2.1 2.1 1.2 0 2.2-.7 2.7-1.6l1.3.7c-.8 1.4-2.3 2.3-4.4 2.3z" />
                       </svg>
                     </div>
 
                     {/* Circle 3: Framer (White Ring Border) */}
-                    <div className="relative z-10 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Framer">
-                      <svg className="w-full h-full text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <div
+                      className="relative z-10 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Framer"
+                    >
+                      <svg
+                        className="w-full h-full text-white"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
                         <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" />
                       </svg>
                     </div>
@@ -124,26 +163,65 @@ export function UiUxBentoGrid() {
                 <div className="mt-4 inline-flex items-center p-2 rounded-2xl bg-neutral-900/90 border border-white/10 shadow-lg w-fit">
                   <div className="flex items-center -space-x-3">
                     {/* Circle 1: Figma (White Ring Border) */}
-                    <div className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Figma">
-                      <svg className="w-full h-full" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38H19V28.5Z" fill="#1ABCFE"/>
-                        <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
-                        <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
-                        <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
-                        <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+                    <div
+                      className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Figma"
+                    >
+                      <svg
+                        className="w-full h-full"
+                        viewBox="0 0 38 57"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38H19V28.5Z"
+                          fill="#1ABCFE"
+                        />
+                        <path
+                          d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z"
+                          fill="#0ACF83"
+                        />
+                        <path
+                          d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z"
+                          fill="#FF7262"
+                        />
+                        <path
+                          d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z"
+                          fill="#F24E1E"
+                        />
+                        <path
+                          d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z"
+                          fill="#A259FF"
+                        />
                       </svg>
                     </div>
 
                     {/* Circle 2: Storybook (White Ring Border) */}
-                    <div className="relative z-20 w-10 h-10 rounded-full bg-[#FF4785] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Storybook">
-                      <svg className="w-full h-full text-white" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16.71 4.75l-4.5 1.6-4.5-1.6V2.5l4.5 1.6 4.5-1.6v2.25zm0 3.5l-4.5 1.6-4.5-1.6v11.5l4.5 1.6 4.5-1.6V8.25z"/>
+                    <div
+                      className="relative z-20 w-10 h-10 rounded-full bg-[#FF4785] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Storybook"
+                    >
+                      <svg
+                        className="w-full h-full text-white"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M16.71 4.75l-4.5 1.6-4.5-1.6V2.5l4.5 1.6 4.5-1.6v2.25zm0 3.5l-4.5 1.6-4.5-1.6v11.5l4.5 1.6 4.5-1.6V8.25z" />
                       </svg>
                     </div>
 
                     {/* Circle 3: React / Component Tokens (White Ring Border) */}
-                    <div className="relative z-10 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="React Tokens">
-                      <svg className="w-full h-full text-[#61DAFB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                      className="relative z-10 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="React Tokens"
+                    >
+                      <svg
+                        className="w-full h-full text-[#61DAFB]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
                         <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)" />
                         <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(90 12 12)" />
                         <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(150 12 12)" />

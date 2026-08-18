@@ -72,7 +72,8 @@ export default function BlogPage() {
               INSIGHTS FOR <span className="text-[#FF2A2A]">FOUNDERS</span> & BUILDERS.
             </h1>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-medium max-w-2xl pt-2">
-              Actionable guides on Web Development, Mobile Apps, UI/UX, SEO & IT Strategy — written for founders and creators who need real answers, not agency fluff.
+              Actionable guides on Web Development, Mobile Apps, UI/UX, SEO & IT Strategy — written
+              for founders and creators who need real answers, not agency fluff.
             </p>
           </div>
         </Reveal>
@@ -171,7 +172,9 @@ export default function BlogPage() {
                     </div>
                     <div>
                       <span className="text-xs font-bold text-white block">{featured.author}</span>
-                      <span className="text-[11px] text-neutral-400 block">{featured.authorRole}</span>
+                      <span className="text-[11px] text-neutral-400 block">
+                        {featured.authorRole}
+                      </span>
                     </div>
                   </div>
 
@@ -201,7 +204,8 @@ export default function BlogPage() {
           {restPosts.length === 0 ? (
             <div className="text-center py-16 border border-dashed border-neutral-300 dark:border-neutral-800 rounded-3xl p-8">
               <p className="text-neutral-500 dark:text-neutral-400 text-sm font-medium">
-                No articles found matching &quot;{searchQuery}&quot;. Try another search term or filter.
+                No articles found matching &quot;{searchQuery}&quot;. Try another search term or
+                filter.
               </p>
               <button
                 onClick={() => {
@@ -276,7 +280,8 @@ export default function BlogPage() {
                 HAVE A PROJECT IN MIND OR NEED TECH ADVICE?
               </h2>
               <p className="text-neutral-300 text-xs sm:text-sm font-medium leading-relaxed">
-                Talk to our engineering lead today. We&apos;ll analyze your requirements and send a transparent fixed-price proposal within 24 hours.
+                Talk to our engineering lead today. We&apos;ll analyze your requirements and send a
+                transparent fixed-price proposal within 24 hours.
               </p>
             </div>
 

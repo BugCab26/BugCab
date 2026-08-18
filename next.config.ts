@@ -43,7 +43,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: [
       "lucide-react",
       "framer-motion",
-      "gsap",
       "date-fns",
       "@radix-ui/react-dialog",
       "@radix-ui/react-dropdown-menu",

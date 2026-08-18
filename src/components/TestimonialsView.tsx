@@ -40,9 +40,7 @@ export function TestimonialsView() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredReviews =
-    activeCategory === "All"
-      ? reviewsData
-      : reviewsData.filter((r) => r.tag === activeCategory);
+    activeCategory === "All" ? reviewsData : reviewsData.filter((r) => r.tag === activeCategory);
 
   return (
     <div className="space-y-16">
@@ -51,9 +49,7 @@ export function TestimonialsView() {
         {categories.map((cat) => {
           const isActive = activeCategory === cat;
           const count =
-            cat === "All"
-              ? reviewsData.length
-              : reviewsData.filter((r) => r.tag === cat).length;
+            cat === "All" ? reviewsData.length : reviewsData.filter((r) => r.tag === cat).length;
 
           return (
             <button
@@ -68,9 +64,7 @@ export function TestimonialsView() {
               {cat}
               <span
                 className={`px-2 py-0.5 rounded-full text-[10px] ${
-                  isActive
-                    ? "bg-white/20 text-white"
-                    : "bg-white/5 text-neutral-400"
+                  isActive ? "bg-white/20 text-white" : "bg-white/5 text-neutral-400"
                 }`}
               >
                 {count}
@@ -133,9 +127,7 @@ export function TestimonialsView() {
                     {r.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="text-white font-bold text-sm leading-snug">
-                      {r.name}
-                    </h4>
+                    <h4 className="text-white font-bold text-sm leading-snug">{r.name}</h4>
                     <p className="text-neutral-400 text-xs font-medium">
                       {r.role}, <span className="text-neutral-300">{r.company}</span>
                     </p>

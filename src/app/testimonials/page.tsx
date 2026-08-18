@@ -30,7 +30,9 @@ export const metadata: Metadata = {
 
 // ── Schema ─────────────────────────────────────────────────────────────────
 function TestimonialsSchema() {
-  const avgRating = (reviewsData.reduce((sum, r) => sum + r.rating, 0) / reviewsData.length).toFixed(1);
+  const avgRating = (
+    reviewsData.reduce((sum, r) => sum + r.rating, 0) / reviewsData.length
+  ).toFixed(1);
 
   return (
     <script
@@ -130,7 +132,9 @@ export default function TestimonialsPage() {
               </h1>
 
               <p className="text-neutral-400 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-2xl mb-10">
-                From solo founders to growing business teams across India — read real, unedited reviews on BugCab's web development, mobile apps, UI/UX design, and digital marketing services.
+                From solo founders to growing business teams across India — read real, unedited
+                reviews on BugCab's web development, mobile apps, UI/UX design, and digital
+                marketing services.
               </p>
 
               {/* Stats Bar */}
@@ -144,22 +148,36 @@ export default function TestimonialsPage() {
                       ))}
                     </div>
                   </div>
-                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">Average Rating</span>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">
+                    Average Rating
+                  </span>
                 </div>
 
                 <div className="flex flex-col border-l border-white/10 pl-4">
-                  <span className="font-display text-2xl sm:text-3xl font-black text-[#00C247]">100%</span>
-                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">Verified Clients</span>
+                  <span className="font-display text-2xl sm:text-3xl font-black text-[#00C247]">
+                    100%
+                  </span>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">
+                    Verified Clients
+                  </span>
                 </div>
 
                 <div className="flex flex-col border-l border-white/10 pl-4">
-                  <span className="font-display text-2xl sm:text-3xl font-black text-white">98%</span>
-                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">Client Retention</span>
+                  <span className="font-display text-2xl sm:text-3xl font-black text-white">
+                    98%
+                  </span>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">
+                    Client Retention
+                  </span>
                 </div>
 
                 <div className="flex flex-col border-l border-white/10 pl-4">
-                  <span className="font-display text-2xl sm:text-3xl font-black text-[#FF3B30]">5.0★</span>
-                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">Google Rated</span>
+                  <span className="font-display text-2xl sm:text-3xl font-black text-[#FF3B30]">
+                    5.0★
+                  </span>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">
+                    Google Rated
+                  </span>
                 </div>
               </div>
             </div>
@@ -180,9 +198,12 @@ export default function TestimonialsPage() {
               <MessageSquare className="w-6 h-6 text-[#FF3B30]" />
             </div>
             <div>
-              <h3 className="font-display text-lg font-bold text-white uppercase">Also find us on Google</h3>
+              <h3 className="font-display text-lg font-bold text-white uppercase">
+                Also find us on Google
+              </h3>
               <p className="mt-1 text-xs sm:text-sm text-neutral-400 font-medium">
-                Search "BugCab IT Solutions" on Google Maps to see verified public reviews and feedback.
+                Search "BugCab IT Solutions" on Google Maps to see verified public reviews and
+                feedback.
               </p>
             </div>
           </div>
@@ -207,7 +228,10 @@ export default function TestimonialsPage() {
                 // READY TO WORK TOGETHER?
               </span>
               <h2 className="font-display text-3xl sm:text-5xl font-black text-white uppercase tracking-tight leading-[1.05]">
-                JOIN OUR GROWING LIST OF <span className="text-white underline decoration-white/30 decoration-wavy">HAPPY CLIENTS.</span>
+                JOIN OUR GROWING LIST OF{" "}
+                <span className="text-white underline decoration-white/30 decoration-wavy">
+                  HAPPY CLIENTS.
+                </span>
               </h2>
               <p className="mt-4 text-white/90 text-xs sm:text-base font-medium leading-relaxed">
                 Free 30-minute consultation. Fixed-price proposal within 24 hours. Zero hidden fees.

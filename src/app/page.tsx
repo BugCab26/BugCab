@@ -5,7 +5,7 @@ import { AstronautBanner } from "@/components/AstronautBanner";
 
 export default function IndexPage() {
   return (
-    <main className="relative overflow-x-hidden max-w-[95vw] sm:max-w-none mx-auto px-2 sm:px-0">
+    <main className="relative w-full overflow-x-hidden">
       <Hero />
       <HomeServices />
       <Testimonials />

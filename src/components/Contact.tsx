@@ -26,9 +26,7 @@ export function Contact() {
 
   const toggleService = (service: string) => {
     setSelectedServices((prev) =>
-      prev.includes(service)
-        ? prev.filter((s) => s !== service)
-        : [...prev, service]
+      prev.includes(service) ? prev.filter((s) => s !== service) : [...prev, service],
     );
   };
 
@@ -47,9 +45,9 @@ export function Contact() {
               Start Your <span className="text-red-500">Project</span> with BugCab.
             </h1>
             <p className="mx-auto mt-4 sm:mt-6 max-w-xl text-xs sm:text-base text-muted-foreground leading-relaxed font-medium">
-              Whether you need a custom business website, a cross-platform mobile app, a UI/UX design
-              refresh, digital marketing, or IT consulting — fill in the form and we'll send you a
-              free, no-obligation quote within 24 hours.
+              Whether you need a custom business website, a cross-platform mobile app, a UI/UX
+              design refresh, digital marketing, or IT consulting — fill in the form and we'll send
+              you a free, no-obligation quote within 24 hours.
             </p>
           </div>
         </Reveal>
@@ -193,20 +191,36 @@ export function Contact() {
               {/* Row 1: Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <Field label="Your name" name="name" placeholder="Jane Doe" required />
-                <Field label="Email" name="email" type="email" placeholder="jane@company.com" required />
+                <Field
+                  label="Email"
+                  name="email"
+                  type="email"
+                  placeholder="jane@company.com"
+                  required
+                />
               </div>
 
               {/* Row 2: Phone & Company */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <Field label="Phone / WhatsApp" name="phone" type="tel" placeholder="+91 98765 43210" required />
-                <Field label="Company (optional)" name="company" type="text" placeholder="Company name" required={false} />
+                <Field
+                  label="Phone / WhatsApp"
+                  name="phone"
+                  type="tel"
+                  placeholder="+91 98765 43210"
+                  required
+                />
+                <Field
+                  label="Company (optional)"
+                  name="company"
+                  type="text"
+                  placeholder="Company name"
+                  required={false}
+                />
               </div>
 
               {/* Row 3: What do you need? (Interactive Multi-Select Chips) */}
               <div className="flex flex-col gap-3">
-                <label className="text-sm font-semibold text-foreground">
-                  What do you need?
-                </label>
+                <label className="text-sm font-semibold text-foreground">What do you need?</label>
                 <div className="flex flex-wrap gap-2.5">
                   {serviceOptions.map((service) => {
                     const isSelected = selectedServices.includes(service);
@@ -231,10 +245,7 @@ export function Contact() {
 
               {/* Row 4: Message Textarea */}
               <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="message"
-                  className="text-sm font-semibold text-foreground"
-                >
+                <label htmlFor="message" className="text-sm font-semibold text-foreground">
                   Tell us about your project — or just the problem
                 </label>
                 <textarea
@@ -249,7 +260,10 @@ export function Contact() {
 
               {/* Row 5: Attach File & Submit Button */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                <label htmlFor="attachment" className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors">
+                <label
+                  htmlFor="attachment"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
+                >
                   <Paperclip className="w-4 h-4 text-[#FF2A2A]" />
                   <span>Attach a brief (optional)</span>
                   <input id="attachment" type="file" name="attachment" className="hidden" />
@@ -260,11 +274,7 @@ export function Contact() {
                   disabled={isPending}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#FF2A2A] hover:bg-[#d92323] px-8 py-3.5 text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg shadow-red-500/25 disabled:opacity-50 disabled:pointer-events-none"
                 >
-                  {isPending
-                    ? "Sending..."
-                    : sent
-                      ? "Message Sent ✓"
-                      : "Send message ↗"}
+                  {isPending ? "Sending..." : sent ? "Message Sent ✓" : "Send message ↗"}
                 </button>
               </div>
             </form>

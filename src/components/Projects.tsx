@@ -3,7 +3,17 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "./Reveal";
-import { ArrowRight, CheckCircle2, ShieldCheck, MessageSquare, Check, X, ExternalLink, Play, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
+  MessageSquare,
+  Check,
+  X,
+  ExternalLink,
+  Play,
+  Sparkles,
+} from "lucide-react";
 import Link from "next/link";
 
 function ProjectVideo({ src }: { src: string }) {
@@ -40,16 +50,18 @@ const portfolioProjects = [
     industry: "SaaS",
     videoSrc: "/projects/project1.mp4",
     overview: {
-      challenge: "B2B SaaS platforms struggle with high support ticket volume during peak hours, causing slow response times and high operational costs.",
-      solution: "Built a custom RAG-powered AI support copilot that indexes documentation in real-time, handles 80% of routine customer queries, and seamlessly escalates complex requests to support agents with context.",
+      challenge:
+        "B2B SaaS platforms struggle with high support ticket volume during peak hours, causing slow response times and high operational costs.",
+      solution:
+        "Built a custom RAG-powered AI support copilot that indexes documentation in real-time, handles 80% of routine customer queries, and seamlessly escalates complex requests to support agents with context.",
       keyFeatures: [
         "Instant vector search on help center documentation",
         "Multi-turn conversation memory with human agent handoff",
         "Custom dashboard for analytics, intent resolution & satisfaction metrics",
-        "Role-based access control and enterprise SOC-2 compliance"
+        "Role-based access control and enterprise SOC-2 compliance",
       ],
       liveUrl: "/contact",
-    }
+    },
   },
 ];
 
@@ -70,7 +82,9 @@ export function Projects() {
               PROJECTS BUILT FOR <span className="text-[#FF2A2A]">REAL</span> BUSINESSES.
             </h1>
             <p className="mt-6 max-w-3xl mx-auto text-neutral-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed font-medium">
-              From motorsport platforms to education portals and home services apps — here&apos;s a selection of websites, web apps, and digital marketing projects <span className="text-[#FF2A2A]">BugCab</span> has shipped for clients.
+              From motorsport platforms to education portals and home services apps — here&apos;s a
+              selection of websites, web apps, and digital marketing projects{" "}
+              <span className="text-[#FF2A2A]">BugCab</span> has shipped for clients.
             </p>
           </Reveal>
         </div>
@@ -119,19 +133,25 @@ export function Projects() {
                   {/* 3 Columns matching reference screenshot */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 border-t lg:border-t-0 lg:border-l border-white/20 pt-6 lg:pt-0 lg:pl-10 text-xs font-semibold uppercase tracking-wider flex-1 w-full lg:w-auto">
                     <div>
-                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">DESCRIPTION</span>
+                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">
+                        DESCRIPTION
+                      </span>
                       <span className="text-white font-medium normal-case text-xs leading-relaxed block max-w-xs">
                         {portfolioProjects[activeIdx].description}
                       </span>
                     </div>
                     <div>
-                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">DELIVERABLES</span>
+                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">
+                        DELIVERABLES
+                      </span>
                       <span className="text-white font-medium normal-case text-xs leading-relaxed block">
                         {portfolioProjects[activeIdx].deliverables}
                       </span>
                     </div>
                     <div>
-                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">INDUSTRY</span>
+                      <span className="text-white/60 block mb-1.5 text-[11px] font-bold tracking-widest">
+                        INDUSTRY
+                      </span>
                       <span className="text-white font-bold normal-case text-xs block">
                         {portfolioProjects[activeIdx].industry}
                       </span>
@@ -396,7 +416,10 @@ export function Projects() {
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {portfolioProjects[modalIdx].overview.keyFeatures.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-300">
+                      <div
+                        key={idx}
+                        className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-300"
+                      >
                         <div className="w-4 h-4 rounded-full bg-[#FF2A2A]/20 border border-[#FF2A2A] text-[#FF2A2A] flex items-center justify-center shrink-0 mt-0.5">
                           <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </div>
@@ -409,7 +432,8 @@ export function Projects() {
                 {/* Modal Footer CTA */}
                 <div className="border-t border-white/10 pt-6 flex items-center justify-between flex-wrap gap-4">
                   <div className="text-xs text-neutral-400">
-                    <strong className="text-white">Deliverables:</strong> {portfolioProjects[modalIdx].deliverables}
+                    <strong className="text-white">Deliverables:</strong>{" "}
+                    {portfolioProjects[modalIdx].deliverables}
                   </div>
                   <div className="flex items-center gap-3">
                     <button

@@ -226,9 +226,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           <div className="space-y-1">
             <p className="font-display font-extrabold text-lg text-white">{post.author}</p>
-            <p className="text-xs font-semibold text-[#FF2A2A] uppercase tracking-wider">{post.authorRole}</p>
+            <p className="text-xs font-semibold text-[#FF2A2A] uppercase tracking-wider">
+              {post.authorRole}
+            </p>
             <p className="pt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed font-medium">
-              Building websites, web apps, mobile apps, and digital marketing strategies for startups and businesses across India since 2022.{" "}
+              Building websites, web apps, mobile apps, and digital marketing strategies for
+              startups and businesses across India since 2022.{" "}
               <Link href="/about" className="text-[#FF2A2A] hover:underline font-bold">
                 Learn more about BugCab →
               </Link>
@@ -246,7 +249,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             Let&apos;s Build Your Product Together.
           </h2>
           <p className="max-w-xl mx-auto text-xs sm:text-sm text-white/90 leading-relaxed font-medium">
-            BugCab delivers custom web applications, mobile apps, and digital marketing for startups and businesses. Get a transparent fixed-price quote within 24 hours.
+            BugCab delivers custom web applications, mobile apps, and digital marketing for startups
+            and businesses. Get a transparent fixed-price quote within 24 hours.
           </p>
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
@@ -297,7 +301,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <h3 className="mt-3 font-display text-base font-extrabold text-foreground group-hover:text-[#FF2A2A] transition-colors leading-snug">
                     {r.title}
                   </h3>
-                  <p className="mt-2 text-xs text-muted-foreground line-clamp-2 leading-relaxed">{r.excerpt}</p>
+                  <p className="mt-2 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                    {r.excerpt}
+                  </p>
                 </Link>
               ))}
             </div>

@@ -72,6 +72,3 @@ export function AstronautBanner() {
 }
 
 export default AstronautBanner;
-
-
-

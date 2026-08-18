@@ -82,7 +82,12 @@ export function About() {
               {/* Bottom Content: Paragraph */}
               <div className="max-w-3xl mt-8 sm:mt-12">
                 <p className="text-xs sm:text-base md:text-lg leading-relaxed text-white/90 font-medium">
-                  Founded in 2022 and headquartered in <strong>Erode & Salem, Tamil Nadu</strong>, BugCab was built with one clear purpose — give startups, founders, and freelancers across <strong>Bangalore, Tamil Nadu, and India</strong> access to the same quality of web development, mobile apps, and digital marketing that enterprise companies take for granted, at a cost that actually makes sense for early-stage budgets.
+                  Founded in 2022 and headquartered in <strong>Erode & Salem, Tamil Nadu</strong>,
+                  BugCab was built with one clear purpose — give startups, founders, and freelancers
+                  across <strong>Bangalore, Tamil Nadu, and India</strong> access to the same
+                  quality of web development, mobile apps, and digital marketing that enterprise
+                  companies take for granted, at a cost that actually makes sense for early-stage
+                  budgets.
                 </p>
               </div>
             </div>

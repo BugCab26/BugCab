@@ -321,10 +321,11 @@ export function InteractiveServices() {
             return (
               <Reveal key={index} delay={index * 0.04}>
                 <div
-                  className={`overflow-hidden rounded-2xl border transition-all duration-200 ${isOpen
+                  className={`overflow-hidden rounded-2xl border transition-all duration-200 ${
+                    isOpen
                       ? "border-neutral-900 bg-neutral-50 shadow-sm"
                       : "border-neutral-200/80 bg-neutral-100/60 hover:bg-neutral-100"
-                    }`}
+                  }`}
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
@@ -334,10 +335,11 @@ export function InteractiveServices() {
                       {faq.q}
                     </span>
                     <span
-                      className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${isOpen
+                      className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${
+                        isOpen
                           ? "bg-neutral-950 text-white"
                           : "bg-white text-neutral-600 border border-neutral-200"
-                        }`}
+                      }`}
                     >
                       {isOpen ? (
                         <Minus className="h-3.5 w-3.5" />

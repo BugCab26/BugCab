@@ -28,12 +28,22 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer suppressHydrationWarning className="bg-background pt-12 sm:pt-16 pb-8 border-t border-border/60">
+    <footer
+      suppressHydrationWarning
+      className="bg-background pt-12 sm:pt-16 pb-8 border-t border-border/60"
+    >
       <div suppressHydrationWarning className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div suppressHydrationWarning className="flex flex-col lg:flex-row justify-between items-start gap-10 sm:gap-12">
+        <div
+          suppressHydrationWarning
+          className="flex flex-col lg:flex-row justify-between items-start gap-10 sm:gap-12"
+        >
           {/* Left — brand + email */}
           <div suppressHydrationWarning className="flex flex-col gap-4 max-w-sm w-full">
-            <div className="overflow-hidden rounded-[20px] sm:rounded-[24px] shadow-lg relative w-full max-w-[260px] h-[150px] sm:h-[160px]">
+            <Link
+              href="/"
+              aria-label="BugCab Home"
+              className="overflow-hidden rounded-[20px] sm:rounded-[24px] shadow-lg relative w-full max-w-[260px] h-[150px] sm:h-[160px] block"
+            >
               <Image
                 src="/images/BugCab.png"
                 alt="BugCab IT Solutions Logo"
@@ -42,8 +52,11 @@ export function Footer() {
                 loading="lazy"
                 className="object-contain p-2"
               />
-            </div>
-            <div suppressHydrationWarning className="flex flex-col gap-1.5 mt-2 text-xs font-semibold tracking-wider text-neutral-500">
+            </Link>
+            <div
+              suppressHydrationWarning
+              className="flex flex-col gap-1.5 mt-2 text-xs font-semibold tracking-wider text-neutral-500"
+            >
               <div suppressHydrationWarning className="flex items-center gap-2 flex-wrap">
                 <span className="text-[#FF2A2A]">•</span> Email:
                 <a
@@ -53,24 +66,33 @@ export function Footer() {
                   bugcab.com@gmail.com
                 </a>
               </div>
-              <div suppressHydrationWarning className="flex items-center gap-3 text-neutral-400 flex-wrap">
+              <div
+                suppressHydrationWarning
+                className="flex items-center gap-3 text-neutral-400 flex-wrap"
+              >
                 <span className="text-[#FF2A2A]">•</span> Call / WhatsApp:
                 <a
                   href="https://wa.me/916374369237?text=Hi%20BugCab%2C%20I%27d%20like%20to%20discuss%20a%20project"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="text-foreground hover:text-[#FF2A2A] transition-colors font-bold"
                 >
                   +91 6374369237
                 </a>
                 <span>|</span>
-                <a href="tel:+919080410549" className="text-foreground hover:text-[#FF2A2A] transition-colors font-bold">
+                <a
+                  href="tel:+919080410549"
+                  className="text-foreground hover:text-[#FF2A2A] transition-colors font-bold"
+                >
                   +91 9080410549
                 </a>
               </div>
             </div>
             {/* NAP for Local SEO */}
-            <address suppressHydrationWarning className="not-italic text-xs text-neutral-500 leading-relaxed">
+            <address
+              suppressHydrationWarning
+              className="not-italic text-xs text-neutral-500 leading-relaxed"
+            >
               Erode, Tamil Nadu, India
               <br />
               Available for projects worldwide
@@ -78,7 +100,10 @@ export function Footer() {
           </div>
 
           {/* Right — 3 columns */}
-          <div suppressHydrationWarning className="grid grid-cols-2 sm:flex gap-8 sm:gap-12 md:gap-16 w-full lg:w-auto">
+          <div
+            suppressHydrationWarning
+            className="grid grid-cols-2 sm:flex gap-8 sm:gap-12 md:gap-16 w-full lg:w-auto"
+          >
             {/* Navigation */}
             <nav aria-label="Footer navigation">
               <h3 className="text-[10px] uppercase tracking-[0.25em] text-neutral-400 font-bold mb-4 sm:mb-6">
@@ -128,7 +153,7 @@ export function Footer() {
                     <a
                       href={item.href}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       aria-label={`BugCab on ${item.label}`}
                       className="text-xs sm:text-sm font-semibold text-foreground hover:text-[#FF2A2A] transition-colors"
                     >
@@ -155,7 +180,10 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div suppressHydrationWarning className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold uppercase tracking-wider text-neutral-400">
+        <div
+          suppressHydrationWarning
+          className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold uppercase tracking-wider text-neutral-400"
+        >
           <p>© 2025 BugCab IT Solutions. All Rights Reserved.</p>
           <div className="flex gap-6">
             <Link href="/terms-of-service" className="hover:text-[#FF2A2A] transition-colors">

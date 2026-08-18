@@ -66,7 +66,8 @@ export function CybersecurityBentoGrid() {
                     Cloudflare WAF / Bot Mitigation / Rate Limiting
                   </p>
                   <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed font-medium">
-                    Configuring web application firewalls, rate limiting rules, and automated threat defense to shield your apps from malicious traffic.
+                    Configuring web application firewalls, rate limiting rules, and automated threat
+                    defense to shield your apps from malicious traffic.
                   </p>
                 </div>
 
@@ -74,15 +75,41 @@ export function CybersecurityBentoGrid() {
                 <div className="mt-4 inline-flex items-center p-2 rounded-2xl bg-neutral-900/90 border border-white/10 shadow-lg w-fit">
                   <div className="flex items-center -space-x-3">
                     {/* Circle 1: Shield */}
-                    <div className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Firewall Shield">
-                      <svg className="w-5 h-5 text-[#00C247]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    <div
+                      className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Firewall Shield"
+                    >
+                      <svg
+                        className="w-5 h-5 text-[#00C247]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
                       </svg>
                     </div>
                     {/* Circle 2: Lock */}
-                    <div className="relative z-20 w-10 h-10 rounded-full bg-black border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="SSL Encryption">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    <div
+                      className="relative z-20 w-10 h-10 rounded-full bg-black border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="SSL Encryption"
+                    >
+                      <svg
+                        className="w-5 h-5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -101,7 +128,8 @@ export function CybersecurityBentoGrid() {
                     AES-256 • SSL/TLS 1.3 • Data at Rest
                   </span>
                   <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed font-medium">
-                    Enforcing AES-256 database encryption, HTTPS protocols, and strict access tokens to safeguard customer data against unauthorized access.
+                    Enforcing AES-256 database encryption, HTTPS protocols, and strict access tokens
+                    to safeguard customer data against unauthorized access.
                   </p>
                 </div>
               </div>
@@ -116,7 +144,9 @@ export function CybersecurityBentoGrid() {
                   API &amp; Cloud Security
                 </h3>
                 <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed font-medium">
-                  Securing REST and GraphQL API endpoints with JWT auth, CORS policies, rate limiting, and automated vulnerability monitoring across serverless and cloud environments.
+                  Securing REST and GraphQL API endpoints with JWT auth, CORS policies, rate
+                  limiting, and automated vulnerability monitoring across serverless and cloud
+                  environments.
                 </p>
               </div>
 

@@ -75,8 +75,17 @@ export function SoftwareBentoGrid() {
                 <div className="mt-4 inline-flex items-center p-2 rounded-2xl bg-neutral-900/90 border border-white/10 shadow-lg w-fit">
                   <div className="flex items-center -space-x-3">
                     {/* Circle 1: React (White Ring Border) */}
-                    <div className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="React">
-                      <svg className="w-full h-full text-[#61DAFB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                      className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="React"
+                    >
+                      <svg
+                        className="w-full h-full text-[#61DAFB]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
                         <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)" />
                         <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(90 12 12)" />
                         <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(150 12 12)" />
@@ -85,12 +94,18 @@ export function SoftwareBentoGrid() {
                     </div>
 
                     {/* Circle 2: Next.js (White Ring Border) */}
-                    <div className="relative z-20 w-10 h-10 rounded-full bg-black border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Next.js">
+                    <div
+                      className="relative z-20 w-10 h-10 rounded-full bg-black border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Next.js"
+                    >
                       <span className="text-white text-xs font-black tracking-tighter">N</span>
                     </div>
 
                     {/* Circle 3: TypeScript (White Ring Border) */}
-                    <div className="relative z-10 w-10 h-10 rounded-full bg-[#3178C6] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="TypeScript">
+                    <div
+                      className="relative z-10 w-10 h-10 rounded-full bg-[#3178C6] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="TypeScript"
+                    >
                       <span className="text-white text-xs font-bold font-mono">TS</span>
                     </div>
                   </div>
@@ -118,17 +133,26 @@ export function SoftwareBentoGrid() {
                 <div className="mt-4 inline-flex items-center p-2 rounded-2xl bg-neutral-900/90 border border-white/10 shadow-lg w-fit">
                   <div className="flex items-center -space-x-3">
                     {/* Circle 1: Node.js */}
-                    <div className="relative z-30 w-10 h-10 rounded-full bg-[#339933] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Node.js">
+                    <div
+                      className="relative z-30 w-10 h-10 rounded-full bg-[#339933] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Node.js"
+                    >
                       <span className="text-white text-xs font-black">Node</span>
                     </div>
 
                     {/* Circle 2: PostgreSQL */}
-                    <div className="relative z-20 w-10 h-10 rounded-full bg-[#4169E1] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="PostgreSQL">
+                    <div
+                      className="relative z-20 w-10 h-10 rounded-full bg-[#4169E1] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="PostgreSQL"
+                    >
                       <span className="text-white text-xs font-bold">PG</span>
                     </div>
 
                     {/* Circle 3: GraphQL */}
-                    <div className="relative z-10 w-10 h-10 rounded-full bg-[#E10098] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="GraphQL">
+                    <div
+                      className="relative z-10 w-10 h-10 rounded-full bg-[#E10098] border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="GraphQL"
+                    >
                       <span className="text-white text-[10px] font-bold">GQL</span>
                     </div>
                   </div>
@@ -170,4 +194,3 @@ export function SoftwareBentoGrid() {
 }
 
 export default SoftwareBentoGrid;
-

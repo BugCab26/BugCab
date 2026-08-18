@@ -66,7 +66,8 @@ export function MarketingBentoGrid() {
                     Brand Positioning &amp; Visual Campaigns
                   </p>
                   <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed font-medium">
-                    Creating high-converting marketing creatives, brand storytelling, and targeted social media campaigns to build customer trust and awareness.
+                    Creating high-converting marketing creatives, brand storytelling, and targeted
+                    social media campaigns to build customer trust and awareness.
                   </p>
                 </div>
 
@@ -74,15 +75,41 @@ export function MarketingBentoGrid() {
                 <div className="mt-4 inline-flex items-center p-2 rounded-2xl bg-neutral-900/90 border border-white/10 shadow-lg w-fit">
                   <div className="flex items-center -space-x-3">
                     {/* Circle 1: Megaphone */}
-                    <div className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Campaigns">
-                      <svg className="w-5 h-5 text-[#0073FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                    <div
+                      className="relative z-30 w-10 h-10 rounded-full bg-neutral-950 border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Campaigns"
+                    >
+                      <svg
+                        className="w-5 h-5 text-[#0073FF]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+                        />
                       </svg>
                     </div>
                     {/* Circle 2: Target */}
-                    <div className="relative z-20 w-10 h-10 rounded-full bg-black border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl" title="Targeting">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <div
+                      className="relative z-20 w-10 h-10 rounded-full bg-black border-[2.5px] border-white flex items-center justify-center p-2 shadow-xl"
+                      title="Targeting"
+                    >
+                      <svg
+                        className="w-5 h-5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -101,7 +128,8 @@ export function MarketingBentoGrid() {
                     GA4 Tracking • Core Web Vitals • Schema Markup
                   </span>
                   <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed font-medium">
-                    Technical SEO audits, speed optimization, structured data schema, and custom Google Analytics 4 dashboards to track real ROI.
+                    Technical SEO audits, speed optimization, structured data schema, and custom
+                    Google Analytics 4 dashboards to track real ROI.
                   </p>
                 </div>
               </div>
@@ -116,7 +144,8 @@ export function MarketingBentoGrid() {
                   Conversion Rate Optimization (CRO)
                 </h3>
                 <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed font-medium">
-                  A/B testing, user journey analysis, and high-converting landing page designs that turn your traffic into active leads and paying customers.
+                  A/B testing, user journey analysis, and high-converting landing page designs that
+                  turn your traffic into active leads and paying customers.
                 </p>
               </div>
 

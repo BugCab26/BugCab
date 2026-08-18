@@ -79,7 +79,9 @@ export default function ITConsultingPage() {
             IT Consulting for <span className="text-[#FF3B30]">Businesses &amp; Founders.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Navigate complex technical decisions with confidence. From system architecture and cloud infrastructure to digital transformation and stack selection, BugCab provides senior technical guidance tailored to your business goals.
+            Navigate complex technical decisions with confidence. From system architecture and cloud
+            infrastructure to digital transformation and stack selection, BugCab provides senior
+            technical guidance tailored to your business goals.
           </p>
           <div className="mt-8 flex gap-4">
             <Link

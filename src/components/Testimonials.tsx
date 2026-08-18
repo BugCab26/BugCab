@@ -66,7 +66,7 @@ export function Testimonials() {
                 className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden p-6 sm:p-8 md:p-10 text-white flex flex-col justify-between gap-8 w-full shadow-2xl bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80')",
+                    "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=65&fm=webp')",
                 }}
               >
                 {/* Background overlay for high contrast and readability */}
@@ -95,7 +95,9 @@ export function Testimonials() {
                     <div className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
                       <Counter to={100} suffix="%" />
                     </div>
-                    <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">On-Time Delivery</div>
+                    <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">
+                      On-Time Delivery
+                    </div>
                   </div>
                 </div>
               </div>
