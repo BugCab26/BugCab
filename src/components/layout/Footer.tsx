@@ -35,11 +35,12 @@ export function Footer() {
           <div suppressHydrationWarning className="flex flex-col gap-4 max-w-sm w-full">
             <div className="overflow-hidden rounded-[20px] sm:rounded-[24px] shadow-lg relative w-full max-w-[260px] h-[150px] sm:h-[160px]">
               <Image
-                src="/images/car_footer.png"
-                alt="BugCab IT solutions — web and app development for startups India"
+                src="/images/BugCab.png"
+                alt="BugCab IT Solutions Logo"
                 fill
                 sizes="260px"
-                className="object-cover"
+                loading="lazy"
+                className="object-contain p-2"
               />
             </div>
             <div suppressHydrationWarning className="flex flex-col gap-1.5 mt-2 text-xs font-semibold tracking-wider text-neutral-500">

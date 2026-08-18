@@ -7,7 +7,7 @@ import { WebDevMockup, UIDesignMockup, StrategyMockup, SecurityMockup } from "./
 export function HomeServices() {
   return (
     <section id="services" className="relative bg-background py-20 md:py-28 overflow-hidden">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
         {/* Section Header */}
         <Reveal>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">

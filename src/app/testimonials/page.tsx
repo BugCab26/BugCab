@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Star, ArrowRight } from "lucide-react";
+import { Star, ArrowRight, CheckCircle2, ShieldCheck, Award, MessageSquare } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
+import { TestimonialsView } from "@/components/TestimonialsView";
+import { reviewsData } from "@/data/testimonials";
 
 export const metadata: Metadata = {
   title: "Client Reviews & Testimonials — BugCab IT Solutions India",
   description:
-    "See what startup founders and freelancers say about working with BugCab. Real reviews on web development, mobile app development, UI/UX design & digital marketing across India.",
+    "See what startup founders and business leaders say about working with BugCab. Real reviews on web development, mobile app development, UI/UX design & digital marketing across India.",
   alternates: { canonical: "/testimonials" },
   openGraph: {
     type: "website",
     url: "https://bugcab.com/testimonials",
     title: "Client Reviews & Testimonials | BugCab IT Solutions India",
     description:
-      "Real reviews from startup founders and freelancers on BugCab's web development, mobile apps, UI/UX & digital marketing services.",
+      "Real reviews from startup founders and business leaders on BugCab's web development, mobile apps, UI/UX & digital marketing services.",
     images: [{ url: "https://bugcab.com/images/og-testimonials.jpg", width: 1200, height: 630 }],
     siteName: "BugCab IT Solutions",
   },
@@ -25,130 +28,9 @@ export const metadata: Metadata = {
   },
 };
 
-// ── Review data ────────────────────────────────────────────────────────────
-const reviews = [
-  {
-    id: 1,
-    name: "Arjun Mehta",
-    role: "Founder",
-    company: "Fintrax",
-    tag: "Web Development",
-    rating: 5,
-    date: "2025-01-10",
-    review:
-      "BugCab built our entire SaaS platform from scratch in under 8 weeks. The Next.js architecture they chose has scaled perfectly as we've grown. The code quality and delivery speed were both exceptional. Worth every rupee.",
-    project: "SaaS dashboard + admin panel",
-  },
-  {
-    id: 2,
-    name: "Priya Nair",
-    role: "Independent Consultant",
-    company: "Priya Nair Consulting",
-    tag: "UI/UX Design",
-    rating: 5,
-    date: "2025-01-18",
-    review:
-      "I needed a professional website that would win clients from the first impression. BugCab delivered a Figma-to-production design that genuinely looks enterprise-grade. Every screen was approved before they wrote a single line of code — exactly how a design process should work.",
-    project: "Consultant portfolio website + UI design",
-  },
-  {
-    id: 3,
-    name: "Rajan Krishnamurthy",
-    role: "Co-Founder",
-    company: "Edunova",
-    tag: "Digital Marketing",
-    rating: 5,
-    date: "2025-02-05",
-    review:
-      "Their digital marketing team took us from zero to 5,000 monthly organic visitors in four months. The SEO strategy they built — technical fixes first, then content — is still compounding today. We rank on page one for our three main keywords.",
-    project: "SEO strategy + content marketing",
-  },
-  {
-    id: 4,
-    name: "Karthik Sundaram",
-    role: "CTO",
-    company: "LogiStack",
-    tag: "Mobile App Development",
-    rating: 5,
-    date: "2025-02-20",
-    review:
-      "We evaluated four agencies before choosing BugCab. What made the difference was their transparent pricing and the fact they advised us to build in Flutter over React Native for our specific use case — even though it was slightly harder for them. That honesty won our trust immediately.",
-    project: "Cross-platform logistics app (Flutter)",
-  },
-  {
-    id: 5,
-    name: "Meera Krishnan",
-    role: "Founder",
-    company: "StyleCircle",
-    tag: "Web Development",
-    rating: 5,
-    date: "2025-03-10",
-    review:
-      "BugCab took our e-commerce idea from wireframe to live store in 5 weeks. The Razorpay integration worked perfectly from day one and the admin panel they built makes managing inventory genuinely easy. Post-launch support was excellent — every bug fixed within hours.",
-    project: "E-commerce website + Razorpay integration",
-  },
-  {
-    id: 6,
-    name: "Vikram Anand",
-    role: "Solo Founder",
-    company: "TaskBlast",
-    tag: "IT Consulting",
-    rating: 5,
-    date: "2025-03-25",
-    review:
-      "I came to BugCab with three conflicting tech stack recommendations from three different developers. Their IT consulting session gave me a clear, documented recommendation with reasoning. That 2-hour session saved me from making a ₹60,000 mistake. Best money I spent in early stage.",
-    project: "Tech stack advisory + architecture planning",
-  },
-  {
-    id: 7,
-    name: "Divya Ramesh",
-    role: "Product Manager",
-    company: "HealthBridge",
-    tag: "UI/UX Design",
-    rating: 5,
-    date: "2025-04-08",
-    review:
-      "The UI/UX design BugCab delivered for our patient portal was so well thought out that our development team had almost no questions during implementation. The Figma file with developer handoff specs was the most complete design handoff I've seen in five years of product management.",
-    project: "Patient portal UI design + design system",
-  },
-  {
-    id: 8,
-    name: "Sathish Kumar",
-    role: "Director",
-    company: "MAAC Salem",
-    tag: "Web Development",
-    rating: 5,
-    date: "2025-04-20",
-    review:
-      "BugCab handled our web development and ongoing technical support with complete professionalism. Our learning platform now handles thousands of students without any downtime. The performance improvements they made reduced our page load time by 60%.",
-    project: "EdTech platform + ongoing technical support",
-  },
-];
-
-// ── Tag colour map ─────────────────────────────────────────────────────────
-const tagColors: Record<string, string> = {
-  "Web Development": "bg-blue-500/10 border-blue-500/20 text-blue-400",
-  "Mobile App Development": "bg-violet-500/10 border-violet-500/20 text-violet-400",
-  "UI/UX Design": "bg-pink-500/10 border-pink-500/20 text-pink-400",
-  "Digital Marketing": "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
-  "IT Consulting": "bg-amber-500/10 border-amber-500/20 text-amber-400",
-  Cybersecurity: "bg-red-500/10 border-red-500/20 text-red-400",
-};
-
-// ── Star renderer ──────────────────────────────────────────────────────────
-function Stars({ count }: { count: number }) {
-  return (
-    <div className="flex items-center gap-0.5" aria-label={`${count} out of 5 stars`}>
-      {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden />
-      ))}
-    </div>
-  );
-}
-
 // ── Schema ─────────────────────────────────────────────────────────────────
 function TestimonialsSchema() {
-  const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
+  const avgRating = (reviewsData.reduce((sum, r) => sum + r.rating, 0) / reviewsData.length).toFixed(1);
 
   return (
     <script
@@ -183,12 +65,12 @@ function TestimonialsSchema() {
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: avgRating,
-                reviewCount: reviews.length.toString(),
+                reviewCount: reviewsData.length.toString(),
                 bestRating: "5",
                 worstRating: "1",
               },
             },
-            ...reviews.map((r) => ({
+            ...reviewsData.map((r) => ({
               "@type": "Review",
               author: {
                 "@type": "Person",
@@ -212,171 +94,141 @@ function TestimonialsSchema() {
   );
 }
 
-// ── Page ──────────────────────────────────────────────────────────────────
 export default function TestimonialsPage() {
-  const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
-  const tagCounts = reviews.reduce<Record<string, number>>((acc, r) => {
-    acc[r.tag] = (acc[r.tag] ?? 0) + 1;
-    return acc;
-  }, {});
-
   return (
-    <main className="relative pt-24 bg-background text-foreground">
+    <main className="relative pt-24 bg-background text-foreground overflow-hidden">
       <TestimonialsSchema />
 
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="mx-auto max-w-7xl px-6 py-4">
-        <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+      <nav aria-label="Breadcrumb" className="mx-auto max-w-7xl px-5 sm:px-6 py-4">
+        <ol className="flex items-center gap-2 text-sm text-neutral-400 font-medium">
           <li>
-            <Link href="/" className="hover:text-primary transition-colors">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
           </li>
           <li aria-hidden>/</li>
-          <li className="text-foreground">Testimonials</li>
+          <li className="text-white font-bold">Testimonials</li>
         </ol>
       </nav>
 
-      {/* Header */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <span className="text-xs uppercase tracking-[0.4em] text-primary">— Client Reviews</span>
-        <h1 className="mt-4 font-display text-4xl font-bold leading-tight sm:text-6xl">
-          What Our Clients Say — <span className="text-primary">Real Reviews.</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-muted-foreground text-lg leading-relaxed">
-          From solo founders to growing startup teams across India — here's what clients say about
-          working with BugCab on web development, mobile apps, UI/UX design, and digital marketing.
-        </p>
+      {/* Hero Banner */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 pt-6 pb-12">
+        <Reveal>
+          <div className="relative rounded-[32px] sm:rounded-[40px] bg-gradient-to-b from-neutral-900 via-neutral-950 to-black text-white p-7 sm:p-12 lg:p-16 border border-white/10 shadow-2xl overflow-hidden">
+            {/* Background Red Ambient Glow */}
+            <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#FF3B30]/15 blur-[120px]" />
+            <div className="pointer-events-none absolute -left-20 -bottom-20 h-80 w-80 rounded-full bg-[#FF3B30]/10 blur-[100px]" />
 
-        {/* Aggregate stats */}
-        <div className="mt-10 flex flex-wrap gap-6">
-          {/* Overall rating */}
-          <div className="flex items-center gap-4 rounded-2xl border border-border bg-card/40 px-6 py-4">
-            <div>
-              <p className="font-display text-4xl font-bold text-primary">{avgRating}</p>
-              <Stars count={5} />
-            </div>
-            <div className="border-l border-border pl-4">
-              <p className="text-sm font-semibold text-foreground">{reviews.length} reviews</p>
-              <p className="text-xs text-muted-foreground">All verified clients</p>
+            <div className="relative z-10 max-w-4xl">
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.3em] text-[#FF3B30] block mb-4 flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#FF3B30]" /> // VERIFIED CLIENT REVIEWS
+              </span>
+
+              <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.02] uppercase mb-6">
+                WHAT OUR CLIENTS SAY — <span className="text-[#FF3B30]">REAL RESULTS.</span>
+              </h1>
+
+              <p className="text-neutral-400 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-2xl mb-10">
+                From solo founders to growing business teams across India — read real, unedited reviews on BugCab's web development, mobile apps, UI/UX design, and digital marketing services.
+              </p>
+
+              {/* Stats Bar */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 sm:p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1.5 font-display text-2xl sm:text-3xl font-black text-white">
+                    <span>4.9</span>
+                    <div className="flex">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">Average Rating</span>
+                </div>
+
+                <div className="flex flex-col border-l border-white/10 pl-4">
+                  <span className="font-display text-2xl sm:text-3xl font-black text-[#00C247]">100%</span>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">Verified Clients</span>
+                </div>
+
+                <div className="flex flex-col border-l border-white/10 pl-4">
+                  <span className="font-display text-2xl sm:text-3xl font-black text-white">98%</span>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">Client Retention</span>
+                </div>
+
+                <div className="flex flex-col border-l border-white/10 pl-4">
+                  <span className="font-display text-2xl sm:text-3xl font-black text-[#FF3B30]">5.0★</span>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider mt-1">Google Rated</span>
+                </div>
+              </div>
             </div>
           </div>
+        </Reveal>
+      </section>
 
-          {/* By service */}
-          {Object.entries(tagCounts).map(([tag, count]) => (
-            <div
-              key={tag}
-              className="flex items-center gap-3 rounded-2xl border border-border bg-card/40 px-5 py-4"
-            >
-              <span
-                className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${tagColors[tag] ?? "bg-primary/10 border-primary/20 text-primary"}`}
-              >
-                {tag}
-              </span>
-              <span className="text-sm text-muted-foreground">
-                {count} review{count > 1 ? "s" : ""}
-              </span>
+      {/* Main Reviews View */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 pb-20">
+        <TestimonialsView />
+      </section>
+
+      {/* Google Review Banner Nudge */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 pb-16">
+        <div className="rounded-[28px] bg-neutral-950 border border-white/10 p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xl">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-[#FF3B30]/10 border border-[#FF3B30]/20 flex items-center justify-center shrink-0">
+              <MessageSquare className="w-6 h-6 text-[#FF3B30]" />
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Reviews grid */}
-      <section className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((r) => (
-            <article
-              key={r.id}
-              aria-label={`Review by ${r.name} from ${r.company}`}
-              className="flex flex-col rounded-2xl border border-border bg-card p-6 hover:border-primary/40 transition-colors"
-            >
-              {/* Tag + stars */}
-              <div className="flex items-center justify-between flex-wrap gap-2">
-                <span
-                  className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${tagColors[r.tag] ?? "bg-primary/10 border-primary/20 text-primary"}`}
-                >
-                  {r.tag}
-                </span>
-                <Stars count={r.rating} />
-              </div>
-
-              {/* Project */}
-              <p className="mt-3 text-xs text-muted-foreground font-medium">Project: {r.project}</p>
-
-              {/* Review text */}
-              <blockquote className="mt-3 flex-1 text-sm text-muted-foreground leading-relaxed">
-                "{r.review}"
-              </blockquote>
-
-              {/* Author */}
-              <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 font-display font-bold text-primary">
-                  {r.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{r.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {r.role}, {r.company}
-                  </p>
-                </div>
-                <time dateTime={r.date} className="ml-auto text-xs text-muted-foreground">
-                  {new Date(r.date).toLocaleDateString("en-IN", {
-                    year: "numeric",
-                    month: "short",
-                  })}
-                </time>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Google reviews nudge */}
-      <section className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="rounded-2xl border border-border bg-card/30 p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div>
-            <h2 className="font-display text-xl font-bold">Also find us on Google</h2>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Search "BugCab IT Solutions" on Google Maps to see and leave reviews.
-            </p>
+            <div>
+              <h3 className="font-display text-lg font-bold text-white uppercase">Also find us on Google</h3>
+              <p className="mt-1 text-xs sm:text-sm text-neutral-400 font-medium">
+                Search "BugCab IT Solutions" on Google Maps to see verified public reviews and feedback.
+              </p>
+            </div>
           </div>
 
           <a
             href="https://maps.google.com/?q=BugCab+IT+Solutions"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold hover:border-primary transition-colors"
+            className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 text-white px-5 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider border border-white/10 transition-all cursor-pointer"
           >
-            Leave a Google Review <ArrowRight className="h-4 w-4" />
+            Leave a Google Review <ArrowRight className="h-4 w-4 text-[#FF3B30]" />
           </a>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="rounded-3xl bg-primary/5 border border-primary/20 p-12 text-center">
-          <h2 className="font-display text-3xl font-bold sm:text-5xl">
-            Ready to Join Our <span className="text-primary">Happy Clients?</span>
-          </h2>
-          <p className="mt-4 text-muted-foreground max-w-lg mx-auto">
-            Free 30-minute consultation. Fixed-price proposal within 24 hours. No commitment
-            required.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="rounded-full bg-primary px-8 py-3 font-bold text-white hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-            >
-              Start Your Project
-            </Link>
-            <Link
-              href="/services"
-              className="rounded-full border border-border px-8 py-3 font-semibold hover:border-primary transition-colors"
-            >
-              View Our Services
-            </Link>
+      {/* High-Converting CTA Banner */}
+      <section className="mx-auto max-w-7xl px-5 sm:px-6 pb-24">
+        <Reveal>
+          <div className="relative rounded-[36px] bg-gradient-to-b from-[#FF3B30] via-[#D32F2F] to-[#1F0000] p-8 sm:p-12 md:p-16 text-center shadow-2xl overflow-hidden">
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <span className="inline-block text-xs font-mono font-bold uppercase tracking-[0.25em] bg-white/10 text-white px-3.5 py-1.5 rounded-full mb-6 backdrop-blur-md">
+                // READY TO WORK TOGETHER?
+              </span>
+              <h2 className="font-display text-3xl sm:text-5xl font-black text-white uppercase tracking-tight leading-[1.05]">
+                JOIN OUR GROWING LIST OF <span className="text-white underline decoration-white/30 decoration-wavy">HAPPY CLIENTS.</span>
+              </h2>
+              <p className="mt-4 text-white/90 text-xs sm:text-base font-medium leading-relaxed">
+                Free 30-minute consultation. Fixed-price proposal within 24 hours. Zero hidden fees.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  href="/contact"
+                  className="rounded-xl bg-white text-black font-extrabold text-xs sm:text-sm px-7 py-3.5 uppercase tracking-wider hover:bg-neutral-100 hover:scale-[1.02] active:scale-98 transition-all shadow-lg cursor-pointer"
+                >
+                  Start Your Project
+                </Link>
+                <Link
+                  href="/services"
+                  className="rounded-xl bg-black/40 text-white font-bold text-xs sm:text-sm px-7 py-3.5 uppercase tracking-wider border border-white/20 hover:bg-black/60 transition-all cursor-pointer"
+                >
+                  Explore Services
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
     </main>
   );

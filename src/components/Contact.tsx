@@ -249,10 +249,10 @@ export function Contact() {
 
               {/* Row 5: Attach File & Submit Button */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                <label className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors">
+                <label htmlFor="attachment" className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors">
                   <Paperclip className="w-4 h-4 text-[#FF2A2A]" />
                   <span>Attach a brief (optional)</span>
-                  <input type="file" name="attachment" className="hidden" />
+                  <input id="attachment" type="file" name="attachment" className="hidden" />
                 </label>
 
                 <button

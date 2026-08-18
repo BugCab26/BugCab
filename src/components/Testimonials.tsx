@@ -75,7 +75,7 @@ export function Testimonials() {
                 <div className="relative z-10 flex flex-col justify-between h-full gap-8">
                   <div>
                     <div className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
-                      <Counter to={1} suffix="+" />
+                      <Counter to={25} suffix="+" />
                     </div>
                     <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">
                       Finalized Projects
@@ -84,7 +84,7 @@ export function Testimonials() {
 
                   <div className="border-t border-white/10 pt-6">
                     <div className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
-                      <Counter to={18} suffix="%" />
+                      <Counter to={98} suffix="%" />
                     </div>
                     <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">
                       Client satisfaction rate
@@ -93,9 +93,9 @@ export function Testimonials() {
 
                   <div className="border-t border-white/10 pt-6">
                     <div className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
-                      <Counter to={1} suffix="M" />
+                      <Counter to={100} suffix="%" />
                     </div>
-                    <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">Gross Revenue</div>
+                    <div className="mt-2 text-xs sm:text-sm text-neutral-400 font-medium">On-Time Delivery</div>
                   </div>
                 </div>
               </div>

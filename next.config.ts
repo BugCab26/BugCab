@@ -6,15 +6,16 @@ import path from "path";
 
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
-  style-src 'self' 'unsafe-inline';
-  img-src 'self' data: blob: https://images.unsplash.com;
-  font-src 'self' data:;
-  connect-src 'self' https://api.emailjs.com;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com;
+  font-src 'self' data: https://fonts.gstatic.com https://api.fontshare.com;
+  img-src 'self' data: blob: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com;
+  connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;
   frame-src 'self';
   object-src 'none';
   base-uri 'self';
   form-action 'self';
+  upgrade-insecure-requests;
 `
   .replace(/\s{2,}/g, " ")
   .trim();
@@ -39,7 +40,7 @@ const nextConfig: NextConfig = {
   compress: true,
 
   experimental: {
-    // optimizePackageImports disabled to fix webpack bundling errors
+    optimizePackageImports: ["lucide-react", "framer-motion", "gsap"],
   },
 
   // Security + performance headers
@@ -48,6 +49,7 @@ const nextConfig: NextConfig = {
     const securityHeaders = [
       { key: "X-Content-Type-Options", value: "nosniff" },
       { key: "X-Frame-Options", value: "DENY" },
+      { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
       { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
       { key: "X-XSS-Protection", value: "1; mode=block" },
       { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },

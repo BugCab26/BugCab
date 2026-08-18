@@ -8,7 +8,7 @@ import { Reveal } from "./Reveal";
 export function AstronautBanner() {
   return (
     <section className="relative bg-background pt-12 sm:pt-24 pb-10 sm:pb-16 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative overflow-visible">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 relative overflow-visible">
         <Reveal>
           <div className="relative w-full rounded-[24px] sm:rounded-[36px] bg-gradient-to-b from-[#ff0000] via-[#c40000] to-[#1f0000] p-6 sm:p-10 md:p-14 lg:p-16 shadow-2xl overflow-visible flex flex-col justify-between min-h-[300px] sm:min-h-[380px] md:min-h-[440px]">
             {/* Pop-out 3D Liquid Graphic with Floating Motion */}
@@ -31,6 +31,7 @@ export function AstronautBanner() {
                 fill
                 sizes="(max-width: 640px) 190px, (max-width: 768px) 380px, (max-width: 1024px) 480px, 560px"
                 priority
+                fetchPriority="high"
                 className="object-contain drop-shadow-2xl"
                 style={{ mixBlendMode: "multiply" }}
               />
