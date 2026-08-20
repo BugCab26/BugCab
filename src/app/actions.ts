@@ -15,17 +15,27 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
 
   let attachmentBase64 = "";
   let attachmentName = "";
+  let attachmentSize = "";
 
   if (attachment && attachment.size > 0) {
-    if (attachment.size > 2 * 1024 * 1024) {
-      return { success: false, error: "Attached file exceeds maximum size limit of 2MB." };
+    if (attachment.size > 10 * 1024 * 1024) {
+      return { success: false, error: "Attached file exceeds maximum size limit of 10MB." };
     }
     attachmentName = attachment.name;
-    try {
-      const buffer = Buffer.from(await attachment.arrayBuffer());
-      attachmentBase64 = `data:${attachment.type || "application/octet-stream"};base64,${buffer.toString("base64")}`;
-    } catch (err) {
-      console.error("Error converting attachment to base64:", err);
+    attachmentSize =
+      attachment.size > 1024 * 1024
+        ? `${(attachment.size / (1024 * 1024)).toFixed(2)} MB`
+        : `${(attachment.size / 1024).toFixed(0)} KB`;
+
+    // EmailJS limits template_params payload to 50KB total.
+    // Only embed raw base64 if small enough (<= 35KB) to prevent EmailJS 50KB limit errors.
+    if (attachment.size <= 35000) {
+      try {
+        const buffer = Buffer.from(await attachment.arrayBuffer());
+        attachmentBase64 = `data:${attachment.type || "application/octet-stream"};base64,${buffer.toString("base64")}`;
+      } catch (err) {
+        console.error("Error converting attachment to base64:", err);
+      }
     }
   }
 
@@ -43,7 +53,9 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
     console.warn(`Company: ${company || "N/A"}`);
     console.warn(`Service: ${service || "N/A"}`);
     console.warn(`Message: ${message}`);
-    console.warn(`Attachment: ${attachmentName || "None"}`);
+    console.warn(
+      `Attachment: ${attachmentName ? `${attachmentName} (${attachmentSize})` : "None"}`,
+    );
     console.warn("---------------------------------");
     console.warn(
       "Warning: EmailJS environment variables (SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY) are not fully defined in .env.local. Logging to console instead of sending email.",
@@ -59,7 +71,9 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
   const phoneValue = phone.trim() || "Not provided";
   const companyValue = company.trim() || "Not provided";
   const serviceValue = service.trim() || "General Inquiry";
-  const briefValue = attachmentName ? `File Attached: ${attachmentName}` : "No file attached";
+  const briefValue = attachmentName
+    ? `File Attached: ${attachmentName} (${attachmentSize})`
+    : "No file attached";
 
   const templateParams: Record<string, any> = {
     // Name variations
@@ -102,8 +116,9 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
     // Brief / Attachment variations
     brief: briefValue,
     attachment_name: attachmentName || "",
-    attachment: attachmentBase64 || "",
-    content: attachmentBase64 || "",
+    attachment_size: attachmentSize || "",
+    attachment: attachmentBase64 || briefValue,
+    content: attachmentBase64 || briefValue,
   };
 
   try {

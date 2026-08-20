@@ -271,7 +271,11 @@ export function Contact() {
                     <span>
                       {selectedFile ? (
                         <span className="text-red-500 font-medium">
-                          {selectedFile.name} ({(selectedFile.size / 1024).toFixed(0)} KB)
+                          {selectedFile.name} (
+                          {selectedFile.size > 1024 * 1024
+                            ? `${(selectedFile.size / (1024 * 1024)).toFixed(1)} MB`
+                            : `${(selectedFile.size / 1024).toFixed(0)} KB`}
+                          )
                         </span>
                       ) : (
                         "Attach a brief (optional)"
@@ -285,8 +289,8 @@ export function Contact() {
                       onChange={(e) => {
                         const file = e.target.files?.[0];
                         if (file) {
-                          if (file.size > 2 * 1024 * 1024) {
-                            toast.error("File size must be less than 2MB.");
+                          if (file.size > 10 * 1024 * 1024) {
+                            toast.error("File size must be less than 10MB.");
                             e.target.value = "";
                             setSelectedFile(null);
                             return;
