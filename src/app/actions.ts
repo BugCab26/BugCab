@@ -1,15 +1,32 @@
 "use server";
 
 export async function sendContactMessage(prevState: any, formData: FormData) {
-  const name = formData.get("name") as string;
-  const email = formData.get("email") as string;
-  const phone = formData.get("phone") as string;
-  const company = formData.get("company") as string;
-  const service = formData.get("service") as string;
-  const message = formData.get("message") as string;
+  const name = (formData.get("name") as string) || "";
+  const email = (formData.get("email") as string) || "";
+  const phone = (formData.get("phone") as string) || "";
+  const company = (formData.get("company") as string) || "";
+  const service = (formData.get("service") as string) || "";
+  const message = (formData.get("message") as string) || "";
+  const attachment = formData.get("attachment") as File | null;
 
   if (!name || !email || !message) {
     return { success: false, error: "Name, email, and message are required." };
+  }
+
+  let attachmentBase64 = "";
+  let attachmentName = "";
+
+  if (attachment && attachment.size > 0) {
+    if (attachment.size > 2 * 1024 * 1024) {
+      return { success: false, error: "Attached file exceeds maximum size limit of 2MB." };
+    }
+    attachmentName = attachment.name;
+    try {
+      const buffer = Buffer.from(await attachment.arrayBuffer());
+      attachmentBase64 = `data:${attachment.type || "application/octet-stream"};base64,${buffer.toString("base64")}`;
+    } catch (err) {
+      console.error("Error converting attachment to base64:", err);
+    }
   }
 
   const serviceId = process.env.EMAILJS_SERVICE_ID;
@@ -19,7 +36,6 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
   const autoreplyTemplateId = process.env.EMAILJS_AUTOREPLY_TEMPLATE_ID;
 
   if (!serviceId || !templateId || !publicKey) {
-    // Development fallback / warning when config is missing
     console.warn("--- [Contact Form Submission] ---");
     console.warn(`Name: ${name}`);
     console.warn(`Email: ${email}`);
@@ -27,18 +43,68 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
     console.warn(`Company: ${company || "N/A"}`);
     console.warn(`Service: ${service || "N/A"}`);
     console.warn(`Message: ${message}`);
+    console.warn(`Attachment: ${attachmentName || "None"}`);
     console.warn("---------------------------------");
     console.warn(
       "Warning: EmailJS environment variables (SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY) are not fully defined in .env.local. Logging to console instead of sending email.",
     );
 
-    // Return a success indicator for local testing
     return {
       success: true,
       message:
         "Form submitted successfully (logged to console; please set EMAILJS_PUBLIC_KEY in .env.local to enable live EmailJS sending).",
     };
   }
+
+  const phoneValue = phone.trim() || "Not provided";
+  const companyValue = company.trim() || "Not provided";
+  const serviceValue = service.trim() || "General Inquiry";
+  const briefValue = attachmentName ? `File Attached: ${attachmentName}` : "No file attached";
+
+  const templateParams: Record<string, any> = {
+    // Name variations
+    from_name: name,
+    name: name,
+    user_name: name,
+    customer_name: name,
+
+    // Email variations
+    from_email: email,
+    email: email,
+    user_email: email,
+    customer_email: email,
+    reply_to: email,
+
+    // Phone / WhatsApp variations
+    phone: phoneValue,
+    phone_number: phoneValue,
+    user_phone: phoneValue,
+    whatsapp: phoneValue,
+    contact_number: phoneValue,
+    mobile: phoneValue,
+
+    // Company variations
+    company: companyValue,
+    company_name: companyValue,
+    user_company: companyValue,
+
+    // Service variations
+    service: serviceValue,
+    services: serviceValue,
+    service_name: serviceValue,
+    project_service: serviceValue,
+    requirement: serviceValue,
+
+    // Message variations
+    message: message,
+    project_details: message,
+
+    // Brief / Attachment variations
+    brief: briefValue,
+    attachment_name: attachmentName || "",
+    attachment: attachmentBase64 || "",
+    content: attachmentBase64 || "",
+  };
 
   try {
     const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
@@ -52,17 +118,7 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
         template_id: templateId,
         user_id: publicKey,
         accessToken: privateKey || undefined,
-        template_params: {
-          from_name: name,
-          name: name,
-          from_email: email,
-          email: email,
-          reply_to: email,
-          phone: phone || "Not provided",
-          company: company || "Not provided",
-          service: service || "General Inquiry",
-          message: message,
-        },
+        template_params: templateParams,
       }),
     });
 
@@ -95,7 +151,9 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
             email: email,
             reply_to: "bugcab.com@gmail.com",
             from_name: "BugCab Team",
-            service: service || "General Inquiry",
+            service: serviceValue,
+            phone: phoneValue,
+            company: companyValue,
           },
         }),
       })

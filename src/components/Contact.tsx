@@ -21,7 +21,8 @@ const serviceOptions = [
 export function Contact() {
   const [sent, setSent] = useState(false);
   const [isPending, setIsPending] = useState(false);
-  const [selectedServices, setSelectedServices] = useState<string[]>(["Website"]);
+  const [selectedServices, setSelectedServices] = useState<string[]>([""]);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const toggleService = (service: string) => {
@@ -157,7 +158,7 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Right column — Form matching reference screenshot 2 */}
+            {/* Right column — Form */}
             <form
               ref={formRef}
               onSubmit={async (e) => {
@@ -174,6 +175,7 @@ export function Contact() {
                     setSent(true);
                     formRef.current?.reset();
                     setSelectedServices(["Website"]);
+                    setSelectedFile(null);
                     setTimeout(() => setSent(false), 5000);
                   } else {
                     toast.error(result.error || "Failed to send message.");
@@ -260,14 +262,57 @@ export function Contact() {
 
               {/* Row 5: Attach File & Submit Button */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                <label
-                  htmlFor="attachment"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
-                >
-                  <Paperclip className="w-4 h-4 text-[#FF2A2A]" />
-                  <span>Attach a brief (optional)</span>
-                  <input id="attachment" type="file" name="attachment" className="hidden" />
-                </label>
+                <div className="flex items-center gap-2">
+                  <label
+                    htmlFor="attachment"
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
+                  >
+                    <Paperclip className="w-4 h-4 text-[#FF2A2A]" />
+                    <span>
+                      {selectedFile ? (
+                        <span className="text-red-500 font-medium">
+                          {selectedFile.name} ({(selectedFile.size / 1024).toFixed(0)} KB)
+                        </span>
+                      ) : (
+                        "Attach a brief (optional)"
+                      )}
+                    </span>
+                    <input
+                      id="attachment"
+                      type="file"
+                      name="attachment"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          if (file.size > 2 * 1024 * 1024) {
+                            toast.error("File size must be less than 2MB.");
+                            e.target.value = "";
+                            setSelectedFile(null);
+                            return;
+                          }
+                          setSelectedFile(file);
+                        } else {
+                          setSelectedFile(null);
+                        }
+                      }}
+                    />
+                  </label>
+                  {selectedFile && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedFile(null);
+                        const input = document.getElementById("attachment") as HTMLInputElement;
+                        if (input) input.value = "";
+                      }}
+                      className="text-xs text-neutral-400 hover:text-red-500 font-bold ml-1"
+                      title="Remove file"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
 
                 <button
                   type="submit"
