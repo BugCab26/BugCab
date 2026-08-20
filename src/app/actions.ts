@@ -70,27 +70,34 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
 
   const phoneValue = phone.trim() || "Not provided";
   const companyValue = company.trim() || "Not provided";
-  const serviceValue = service.trim() || "General Inquiry";
+  const serviceValue = service.trim() || "Website";
   const briefValue = attachmentName
     ? `File Attached: ${attachmentName} (${attachmentSize})`
     : "No file attached";
+
+  const formattedMessage = message.trim()
+    ? `[Services Selected: ${serviceValue}]\n\n${message.trim()}`
+    : `[Services Selected: ${serviceValue}]`;
 
   const templateParams: Record<string, any> = {
     // Name variations
     from_name: name,
     name: name,
+    Name: name,
     user_name: name,
     customer_name: name,
 
     // Email variations
     from_email: email,
     email: email,
+    Email: email,
     user_email: email,
     customer_email: email,
     reply_to: email,
 
     // Phone / WhatsApp variations
     phone: phoneValue,
+    Phone: phoneValue,
     phone_number: phoneValue,
     user_phone: phoneValue,
     whatsapp: phoneValue,
@@ -99,19 +106,47 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
 
     // Company variations
     company: companyValue,
+    Company: companyValue,
     company_name: companyValue,
     user_company: companyValue,
 
-    // Service variations
+    // Service variations (every casing & naming convention)
     service: serviceValue,
+    Service: serviceValue,
+    SERVICES: serviceValue,
+    Services: serviceValue,
     services: serviceValue,
     service_name: serviceValue,
+    ServiceName: serviceValue,
+    selected_services: serviceValue,
+    selectedServices: serviceValue,
+    SelectedServices: serviceValue,
+    serviceOptions: serviceValue,
+    service_options: serviceValue,
+    services_selected: serviceValue,
+    service_selected: serviceValue,
+    user_service: serviceValue,
+    subject: serviceValue,
+    category: serviceValue,
+    option: serviceValue,
+    selected: serviceValue,
+    project: serviceValue,
+    service_needed: serviceValue,
+    services_needed: serviceValue,
+    service_required: serviceValue,
+    service_type: serviceValue,
+    serviceType: serviceValue,
+    type_of_service: serviceValue,
+    service_list: serviceValue,
+    what_do_you_need: serviceValue,
+    project_type: serviceValue,
     project_service: serviceValue,
     requirement: serviceValue,
+    Requirement: serviceValue,
 
     // Message variations
-    message: message,
-    project_details: message,
+    message: formattedMessage,
+    project_details: formattedMessage,
 
     // Brief / Attachment variations
     brief: briefValue,
@@ -175,6 +210,7 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
 
             // Context
             service: serviceValue,
+            services: serviceValue,
             phone: phoneValue,
             company: companyValue,
           },

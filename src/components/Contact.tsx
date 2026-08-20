@@ -21,14 +21,17 @@ const serviceOptions = [
 export function Contact() {
   const [sent, setSent] = useState(false);
   const [isPending, setIsPending] = useState(false);
-  const [selectedServices, setSelectedServices] = useState<string[]>([""]);
+  const [selectedServices, setSelectedServices] = useState<string[]>(["Website"]);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const toggleService = (service: string) => {
-    setSelectedServices((prev) =>
-      prev.includes(service) ? prev.filter((s) => s !== service) : [...prev, service],
-    );
+    setSelectedServices((prev) => {
+      const filtered = prev.filter((s) => s.trim() !== "");
+      return filtered.includes(service)
+        ? filtered.filter((s) => s !== service)
+        : [...filtered, service];
+    });
   };
 
   return (
@@ -167,7 +170,8 @@ export function Contact() {
 
                 try {
                   const formData = new FormData(e.currentTarget);
-                  formData.set("service", selectedServices.join(", ") || "General Inquiry");
+                  const activeServices = selectedServices.filter((s) => s.trim() !== "").join(", ");
+                  formData.set("service", activeServices || "Website");
                   const result = await sendContactMessage(null, formData);
 
                   if (result.success) {
@@ -188,7 +192,11 @@ export function Contact() {
               }}
               className="flex flex-col gap-6 rounded-3xl border border-neutral-200/80 dark:border-white/10 bg-card p-6 sm:p-10 lg:col-span-2 shadow-2xl"
             >
-              <input type="hidden" name="service" value={selectedServices.join(", ")} />
+              <input
+                type="hidden"
+                name="service"
+                value={selectedServices.filter((s) => s.trim() !== "").join(", ") || "Website"}
+              />
 
               {/* Row 1: Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
