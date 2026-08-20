@@ -40,14 +40,7 @@ const nextConfig: NextConfig = {
   compress: true,
 
   experimental: {
-    optimizePackageImports: [
-      "lucide-react",
-      "framer-motion",
-      "date-fns",
-      "@radix-ui/react-dialog",
-      "@radix-ui/react-dropdown-menu",
-      "@radix-ui/react-accordion",
-    ],
+    optimizePackageImports: ["lucide-react"],
   },
 
   // Security + performance headers

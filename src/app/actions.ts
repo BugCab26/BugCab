@@ -4,6 +4,7 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
   const phone = formData.get("phone") as string;
+  const company = formData.get("company") as string;
   const service = formData.get("service") as string;
   const message = formData.get("message") as string;
 
@@ -23,18 +24,19 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
     console.warn(`Name: ${name}`);
     console.warn(`Email: ${email}`);
     console.warn(`Phone: ${phone || "N/A"}`);
+    console.warn(`Company: ${company || "N/A"}`);
     console.warn(`Service: ${service || "N/A"}`);
     console.warn(`Message: ${message}`);
     console.warn("---------------------------------");
     console.warn(
-      "Warning: EmailJS environment variables are not fully defined. Logging to console instead of sending email.",
+      "Warning: EmailJS environment variables (SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY) are not fully defined in .env.local. Logging to console instead of sending email.",
     );
 
     // Return a success indicator for local testing
     return {
       success: true,
       message:
-        "Form submitted successfully (logged to console; set EMAILJS variables to send emails).",
+        "Form submitted successfully (logged to console; please set EMAILJS_PUBLIC_KEY in .env.local to enable live EmailJS sending).",
     };
   }
 
@@ -43,6 +45,7 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Origin: "https://bugcab.com",
       },
       body: JSON.stringify({
         service_id: serviceId,
@@ -54,7 +57,9 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
           name: name,
           from_email: email,
           email: email,
+          reply_to: email,
           phone: phone || "Not provided",
+          company: company || "Not provided",
           service: service || "General Inquiry",
           message: message,
         },
@@ -76,6 +81,7 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Origin: "https://bugcab.com",
         },
         body: JSON.stringify({
           service_id: serviceId,
@@ -87,6 +93,7 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
             name: name,
             to_email: email,
             email: email,
+            reply_to: "bugcab.com@gmail.com",
             from_name: "BugCab Team",
             service: service || "General Inquiry",
           },
