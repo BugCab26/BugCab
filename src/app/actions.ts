@@ -146,43 +146,6 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
       };
     }
 
-    // Try sending auto-reply to the customer (fire-and-forget, non-blocking)
-    if (autoreplyTemplateId) {
-      fetch("https://api.emailjs.com/api/v1.0/email/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Origin: "https://bugcab.com",
-        },
-        body: JSON.stringify({
-          service_id: serviceId,
-          template_id: autoreplyTemplateId,
-          user_id: publicKey,
-          accessToken: privateKey || undefined,
-          template_params: {
-            to_name: name,
-            name: name,
-            to_email: email,
-            email: email,
-            reply_to: "bugcab.com@gmail.com",
-            from_name: "BugCab Team",
-            service: serviceValue,
-            phone: phoneValue,
-            company: companyValue,
-          },
-        }),
-      })
-        .then(async (replyRes) => {
-          if (!replyRes.ok) {
-            const replyErr = await replyRes.text();
-            console.error("EmailJS Auto-Reply API error:", replyErr);
-          }
-        })
-        .catch((err) => {
-          console.error("Error sending EmailJS auto-reply:", err);
-        });
-    }
-
     return {
       success: true,
       message: "Thank you! Your message has been sent successfully.",
