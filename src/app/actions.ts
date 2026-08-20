@@ -146,6 +146,51 @@ export async function sendContactMessage(prevState: any, formData: FormData) {
       };
     }
 
+    // Send Customer Auto-Reply Email directly to customer's email address
+    if (autoreplyTemplateId) {
+      fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Origin: "https://bugcab.com",
+        },
+        body: JSON.stringify({
+          service_id: serviceId,
+          template_id: autoreplyTemplateId,
+          user_id: publicKey,
+          accessToken: privateKey || undefined,
+          template_params: {
+            // Recipient customer variations
+            to_name: name,
+            name: name,
+            user_name: name,
+            to_email: email,
+            email: email,
+            user_email: email,
+            customer_email: email,
+
+            // Sender info
+            from_name: "BugCab Team",
+            reply_to: "bugcab.com@gmail.com",
+
+            // Context
+            service: serviceValue,
+            phone: phoneValue,
+            company: companyValue,
+          },
+        }),
+      })
+        .then(async (replyRes) => {
+          if (!replyRes.ok) {
+            const replyErr = await replyRes.text();
+            console.error("EmailJS Customer Auto-Reply API error:", replyErr);
+          }
+        })
+        .catch((err) => {
+          console.error("Error sending EmailJS customer auto-reply:", err);
+        });
+    }
+
     return {
       success: true,
       message: "Thank you! Your message has been sent successfully.",
