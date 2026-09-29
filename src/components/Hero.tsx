@@ -1,5 +1,3 @@
-"use client";
-
 import { Counter } from "./Counter";
 
 export function Hero() {
