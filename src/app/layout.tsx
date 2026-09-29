@@ -93,7 +93,8 @@ export const metadata: Metadata = {
   },
   verification: {
     google:
-      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "Ux1KK4QIOrbFtwLGV_huUMqfrwYM2JRJChDqfld7HsE",
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+      "Ux1KK4QIOrbFtwLGV_huUMqfrwYM2JRJChDqfld7HsE",
   },
 };
 
@@ -103,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
       lang="en-IN"
       translate="no"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${caveat.variable}`}
+      className={[inter.variable, spaceGrotesk.variable, caveat.variable].join(" ")}
     >
       <head>
         <meta name="google" content="notranslate" />
